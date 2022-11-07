@@ -1,0 +1,143 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 600;
+}
+
+body{
+    background: linear-gradient(#151223,#291947);   
+}   
+
+.content{
+    margin-top: 98px;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-input{
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block; 
+    background: #2B2B2B;
+    border-radius: 8px;
+    color: white;
+    width: 332px;
+}
+
+
+.login-btn{
+    background-color: white;
+    color: black;
+}
+
+.login-input::placeholder{
+    color: white;
+}
+
+.mg-bottom{
+    margin-bottom: 20px;
+}
+
+.mg-top{
+    margin-top: 10px;   
+}
+
+
+.ngang1{
+    position: absolute;
+    top:50%;
+    left:0; 
+}
+
+.ngang2{
+    position: absolute;
+    top:50%;
+    right:0;
+}
+
+.ds-ic{
+    position: relative;
+}
+
+.logo-login{
+    position: absolute;
+    top: 9px;
+    left: 90px;
+}
+
+.col-5{
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.line-vertical{
+    position: relative;
+    height: 464px; 
+}
+
+.cssForm{
+    background: rgba(140, 60, 242, 0.18);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    height: 600px;
+}
+
+.vl{
+    position: absolute;
+    height: 464px;
+    border-left: 2px solid #D9D9D9;
+    left:50%;
+}
+
+.col-2{
+    margin: auto;
+}
+
+
+.des{
+    text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.titleLogin{
+    font-weight:700 ; 
+    line-height: 48.41px; 
+    background: linear-gradient(90deg, #8C3CF2 -1.39%, #C8235D 118.42%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hr{
+    width: 186.04px;
+    border: 1px solid #FFFFFF;
+    height: 0;
+    text-align: center;
+    position: absolute;
+    top: 33px;
+    left: 107px;
+}
+
+.mg-bottom{
+    margin-bottom: 20px;
+}
+
+.toSignUpPage{
+    color: white;
+    background-color:#C8235D;
+    border-radius: 25px;
+    width: 144px;
+    height: 52px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    line-height: 37px;
+}
+
