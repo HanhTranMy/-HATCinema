@@ -10,6 +10,7 @@
     font-size: var(--text);
 }
 
+
 .overflow-twoline-text{
     width:100%;
     overflow: hidden;
@@ -28,4 +29,20 @@
 }
 .text-left{
     text-align: left;
+}
+
+.text-white{
+    color: white;
+}
+
+.font-weight-700{
+    font-weight: 700;
+}
+
+.font-weight-800{
+    font-weight: 800;
+}
+
+.font-size-20{
+    font-size: 20px;
 }

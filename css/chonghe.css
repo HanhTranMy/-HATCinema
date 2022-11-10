@@ -1,3 +1,68 @@
+*{
+    font-size: 16px;
+}
 body{
     background: linear-gradient(#151223,#291947);   
+}
+
+.color-white-weight-500{
+    color: white;
+    font-weight: 500;
+}
+
+.color-white{
+    color: white;
+}
+
+.ds-card-body{
+    background: rgba(140, 60, 242, 0.18);
+    border-radius: 10px;
+    height: 285px;
+    position: relative;
+    text-align: center;
+}
+
+.buy-product{
+    margin-top: 20px;
+}
+
+.total{
+    text-align: end;
+}
+
+.ds-total{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.avaiChair p{
+    display: inline-block;
+}
+
+.avaiChair + .avaiChair{
+    margin-top: 20px;
+}
+
+.ds-avaiChair{
+    background: rgba(140, 60, 242, 0.18);
+    border-radius: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 49px 0px;
+
+
+}
+
+.ds-boxseat{
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin: 11px 0;
+}
+
+.chair{
+    margin-right: 15px;
 }
