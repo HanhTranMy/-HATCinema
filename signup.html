@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/signup.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <title>Login</title>
+    <title>SignUpPage</title>
 
 
 </head>
 <body>
     <div id="main">
         <div class="heading">
+            <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top mg" style="background-color:black;">  
                 <div class="container-fluid">   
                     <a class="navbar-brand" href="#"><img src="./img/logo.png" width="100%" height="72px"></img></a>
@@ -49,19 +50,20 @@
             </nav>
         </div>
 
+        <!-- content of page -->
         <div class="content">
             <div class="container">
                 <div class="row">
                     <div class="col-5 cssForm">
                         <div class="detail">
-                            <img src="./img/logo.png" width="50%" height="72px" class="img-fluid mx-auto d-block mg-top"></img>
+                            <img src="./img/logo.png" width="50%" height="72px" class="img-fluid mx-auto d-block mg-top d-block"></img>
                             <h2 class="heading-login text-white" style="text-align: center; font-size: 24px; line-height: 42px;">Đăng ký tài khoản</h2>
                             <form action="">
-                                <input type="text" class="login-input" name="email" placeholder="Tên của bạn" size="40" style="display: block; height: 45px; padding-left: 15px;">
-                                <input type="text" class="login-input" name="email" placeholder="Số điện thoại" size="40" style="display: block; height: 45px; padding-left: 15px;">
+                                <input type="text" class="login-input" name="name" placeholder="Tên của bạn" size="40" style="display: block; height: 45px; padding-left: 15px;">
+                                <input type="text" class="login-input" name="phone" placeholder="Số điện thoại" size="40" style="display: block; height: 45px; padding-left: 15px;">
                                 <input type="text" class="login-input" name="email" placeholder="Email" size="40" style="display: block; height: 45px; padding-left: 15px;">
-                                <input type="text" class="login-input" name="email" placeholder="Mật khẩu" size="40" style="display: block; height: 45px; padding-left: 15px;">
-                                <input type="text" class="login-input" name="email" placeholder="Nhập lại mật khẩu" size="40" style="display: block; height: 45px; padding-left: 15px;">
+                                <input type="text" class="login-input" name="password" placeholder="Mật khẩu" size="40" style="display: block; height: 45px; padding-left: 15px;">
+                                <input type="text" class="login-input" name="re-password" placeholder="Nhập lại mật khẩu" size="40" style="display: block; height: 45px; padding-left: 15px;">
         
                                 <button type="submit" class="btn login-input login-btn" style="size:45px ;">Đăng ký</button>
                                 <p class="text-white" style="text-align: center; margin-bottom: 20px; width: 332px; margin: auto; background-color: #413961; padding: 10px 0px; position: relative;"><img src="./img/ic_ngang.png" class="ngang1"> Hoặc <img src="./img/ic_ngang.png" class="ngang2"></p>
@@ -93,6 +95,7 @@
             </div>
         </div>
 
+        <!-- footer of page -->
         <div class="footer">
             <div class="logo">
                 <img src="./img/logo.png" alt="HAT cinema logo">

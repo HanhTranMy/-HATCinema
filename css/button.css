@@ -40,6 +40,8 @@
     #buttons {
     padding-top: 50px;
     text-align: center;
+    /* thang edit */
+    margin-top: 98px; 
     }
     .btn-chonve,.btn-chonghe,.btn-chondoan,.btn-chonthanhtoan,.btn-datvethanhcong{
         background-color:#5031B6;

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="./css/booking.css">
+	<!-- link font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Booking Page</title>
+
+</head>
+<body>
+    <div id="main">
+        <div class="heading">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top mg" style="background-color:black;">  
+                <div class="container-fluid">   
+                    <a class="navbar-brand" href="#"><img src="./img/logo.png" width="100%" height="72px"></img></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav mr-auto heading">
+                            <li class="nav-item active"><a class="nav-link text-white" href="#">MUA VÉ</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="#">RẠP PHIM</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="#">KHUYẾN MÃI</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="#">THÀNH VIÊN</a></li>
+                            <li class="nav-item">
+                                <form class="form-inline my-2 my-lg-0 test">
+                                    <img src="./img/ic_search.png" alt="" class="img-search">
+                                    <input class="form-control input-search" type="search" aria-label="Search" size = 35;>
+                                </form>
+                            </li>
+                        </ul>
+        
+                        <ul class="nav navbar-nav mr-5 heading">
+                            <li class="nav-item"><a class="nav-link text-white" href="#">Login/Đăng ký <span> <img src="./img/ic_user.png" alt="" class ="img-user"> </span></a></li>
+                        </ul>  
+           
+                    </div>   
+        
+                </div>
+            </nav>
+        </div>
+
+        <div class="content">
+            <!--Button thanh trạng thái-->
+            <div class="status">
+                <div id="buttons">
+                    <a href="#" class="btn btn-chonve">Chọn vé </a>
+                    <a href="#" class="btn btn-chonghe">Chọn ghế</a>
+                    <a href="#" class="btn btn-chondoan">Chọn đồ ăn</a>
+                    <a href="#" class="btn btn-chonthanhtoan">Thanh toán</a>
+                    <a href="#" class="btn btn-datvethanhcong">Đặt vé thành công</a>    
+                </div>
+            </div>
+            
+            <!-- card-flim -->
+            <div class="container-fluid mg-bottom-100">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card" style="width: 367px; height: 732px;">
+                            <img class="card-img-top" src="./img/imgTicket.jpg" alt="Card image" width="300px">
+                            <div class="card-body">
+                                <table class="table table-borderless table-ticket" >
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" style="padding: 0 10px 10px 10px;">
+                                            <h4 class="card-ticket-title">PANTERA NEGRA: WAKANDA PARA SEMPRE</h4>
+                                            <p class="card-ticket-subtitle purple-12">Ryan Coogler</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>        
+                                        <tr class="purple-12">
+                                            <td>Ngày</td>
+                                            <td>Giờ</td>
+                                            <td>Loại</td>
+                                        </tr>
+                                        <tr class="card-ticket-text">
+                                            <td>24/11</td>
+                                            <td>20h00</td>
+                                            <td>3D</td>
+                                        </tr>
+                                        <tr class="purple-12">
+                                            <td>Rạp</td>
+                                            <td>Hàng</td>
+                                            <td>Ghế</td>
+                                        </tr>
+                                        <tr class="card-ticket-text">
+                                            <td>3</td>
+                                            <td>D</td>
+                                            <td>6</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h4 class="purple-12" style="margin: 0; margin-top: 16px;">HAT  Cinema</h4>
+                                                <p class="card-ticket-text ">Hai Bà Trưng</p>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            <div class="qr-code">
+                                <div class="text-code">
+                                    <p class="purple-12" style="margin: 0; margin-top: 16px;">Mã code</p>
+                                    <p class="card-ticket-text" style="color:#fff">166937</p>
+                                </div>
+                                <img src="./img/QR Code.png" alt="Qr code ticket">
+                            </div>
+                            </div>
+                            <img class="line" src="./img/line10.png" alt="Line">
+                        </div>
+                    </div>
+
+
+                    <!-- Create line -->
+                    <div class="col-1">
+                        <div class="line-vertical">
+                            <div class="vl"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-7">
+                        <div class="container " style="width: 900px;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img src="./img/ic_datvethanhcong.png" alt="" class="img-fluid mg-bottom">
+                                </div>
+    
+                                <div class="col-md-12">
+                                    <h1 class="titleDatVe mg-bottom">ĐẶT VÉ THÀNH CÔNG</h1>
+                                </div>
+    
+                                <div class="col-md-12">
+                                    <hr class ="hr mg-bottom">
+                                </div>
+    
+                                <div class="col-md-12 text-center">
+                                    <p class="mg-bottom" style=" color: #FFFFFF; height: 29px; font-weight: 300">Bạn đặt vé thành công. Khi bạn đến rạp vui lòng trình vé cho nhân viên tại quầy vé</p>
+                                </div>
+    
+                                <div class="col-md-12 text-center">
+                                    <p class="mg-bottom" style=" color: #FFFFFF; height: 29px; font-weight: 300">Chúc bạn có buổi xem phim vui vẻ </p>
+                                </div>
+    
+                                <div class="col-md-12 text-center">
+                                    <h2 class ="mg-bottom titleThanks fontSize-24">HAT Cinema xin chân thành cảm ơn</h2>
+                                </div>
+
+                                <div class="col-md-12 cssFvFilm">
+                                    <div class="container">
+                                        <div class="row ">
+                                            <div class="col-md-12 text-left-color-white">
+                                                <p class="mg-bottom">Phim yêu thích</p>
+                                            </div>
+
+                                            <div class="ds-fvfilm">
+                                                <img src="./img/4.jpg" alt="" class ="img-fluid img-film">
+                                            </div>
+
+                                            <div class="ds-fvfilm">
+                                                <img src="./img/1.jpg" alt="" class ="img-fluid img-film">
+                                            </div>
+
+                                            <div class="ds-fvfilm">
+                                                <img src="./img/2.jpg" alt="" class ="img-fluid img-film">
+                                            </div>
+
+                                            <div class="ds-fvfilm">
+                                                <img src="./img/3.jpg" alt="" class ="img-fluid img-film">
+                                            </div>
+
+                                            <div class="ds-fvfilm">
+                                                <img src="./img/5.jpg" alt="" class ="img-fluid img-film">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                
+                </div>
+            </div>
+
+            <!-- Footer of page -->
+            <div class="footer">
+                <div class="logo">
+                    <img src="./img/logo.png" alt="HAT cinema logo">
+                </div>
+                <div class="info">
+                    <div class="thong_tin_lien_he info_child">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">THÔNG TIN LIÊN HỆ</div>
+                            <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2">
+                                Email: hatcinema@gmail.com <br>
+                                Hotline: 1900 0000 <br>
+                                Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày làm việc)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thanh_vien info_child">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">THÀNH VIÊN</div>
+                            <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2">
+                                Thông tin tài khoản <br>
+                                Lịch sử mua vé <br>
+                                Đánh giá
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dieu_khoan_su_dung info_child">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">ĐIỂU KHOẢN SỬ DỤNG</div>
+                            <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2">
+                                Điều khoản chung<br>
+                                Điều khoản giao dịch<br>
+                                Chính sách thanh toán<br>
+                                Chính sách bảo mật<br>
+                                Câu hỏi thường gặp
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ket_noi_voi_chung_toi info_child">
+                        <div class="row">
+                            <div class="col-md-12 offset-md-2">KẾT NỐI VỚI CHÚNG TÔI</div>
+                            <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
