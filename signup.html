@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- link css -->
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/signup.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <title>SignUpPage</title>
+    <link rel="stylesheet" href="./css/general.css">
+    <title>Sign up</title>
 
 
 </head>
@@ -54,42 +57,50 @@
         <div class="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-5 cssForm">
-                        <div class="detail">
-                            <img src="./img/logo.png" width="50%" height="72px" class="img-fluid mx-auto d-block mg-top d-block"></img>
-                            <h2 class="heading-login text-white" style="text-align: center; font-size: 24px; line-height: 42px;">Đăng ký tài khoản</h2>
-                            <form action="">
-                                <input type="text" class="login-input" name="name" placeholder="Tên của bạn" size="40" style="display: block; height: 45px; padding-left: 15px;">
-                                <input type="text" class="login-input" name="phone" placeholder="Số điện thoại" size="40" style="display: block; height: 45px; padding-left: 15px;">
-                                <input type="text" class="login-input" name="email" placeholder="Email" size="40" style="display: block; height: 45px; padding-left: 15px;">
-                                <input type="text" class="login-input" name="password" placeholder="Mật khẩu" size="40" style="display: block; height: 45px; padding-left: 15px;">
-                                <input type="text" class="login-input" name="re-password" placeholder="Nhập lại mật khẩu" size="40" style="display: block; height: 45px; padding-left: 15px;">
-        
-                                <button type="submit" class="btn login-input login-btn" style="size:45px ;">Đăng ký</button>
-                                <p class="text-white" style="text-align: center; margin-bottom: 20px; width: 332px; margin: auto; background-color: #413961; padding: 10px 0px; position: relative;"><img src="./img/ic_ngang.png" class="ngang1"> Hoặc <img src="./img/ic_ngang.png" class="ngang2"></p>
-                                <button type="submit" class="btn login-input ds-ic"><img src="./img/ic_google.png" class="logo-login">Google</button>
-                                <button type="submit" class="btn login-input ds-ic"><img src="./img/ic_facebook.png" class="logo-login">Facebook</button>   
-                            </form>
+                    <div class="col-lg-5 col-12 col-md-12 cssForm">
+                        <div class="ds-form">
+                            <div>
+                                <div class="ds-form">
+                                    <img src="./img/logo.png" width="50%" alt="" class="img-fluid mx-auto d-block mg-top d-block"></img>
+                                    <h2 class="heading-login text-white" style="text-align: center; font-size: 24px;">Đăng ký tài khoản</h2>
+                                    <form action="" class = "format-form">
+                                        <input type="text" class="login-input" name="name" placeholder="Tên của bạn" style="display: block; padding: 10px;">
+                                        <input type="text" class="login-input" name="phone" placeholder="Số điện thoại" style="display: block; padding: 10px;">
+                                        <input type="text" class="login-input" name="email" placeholder="Email" style="display: block; padding: 10px;">
+                                        <input type="text" class="login-input" name="password" placeholder="Mật khẩu" style="display: block; padding: 10px;">
+                                        <input type="text" class="login-input" name="re-password" placeholder="Nhập lại mật khẩu" style="display: block; padding: 10px;">
+                
+                                        <button type="submit" class="btn login-input ds-ic text-black background-white font-weight-600 mt-5" style="padding: 15px">Đăng ký</button>
+                                        <p class="text-white m-auto" style="text-align: center; background-color: #413961; padding: 10px 0px;">Hoặc</p>
+                                        <button type="submit" class="btn login-input ds-ic font-weight-700" style="padding: 10px" ><img src="./img/ic_google.png" class="logo-login">Google</button>
+                                        <button type="submit" class="btn login-input ds-ic font-weight-700" style="padding: 10px" ><img src="./img/ic_facebook.png" class="logo-login">Facebook</button>   
+                                    </form>
+                                </div>
+                            </div>
                         </div>       
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-lg-2 m-auto">
                         <div class="line-vertical">
                             <div class="vl"></div>
                         </div>
                     </div>
 
-                    <div class="col-5">
-                        <div class="des">
-                            <h1 class="titleLogin mg-bottom" size = 40>ĐĂNG KÝ TÀI KHOẢN</h1>
-                            <hr class ="hr mg-bottom">
-                         <h3 class="mg-bottom" style=" color: #FFFFFF; height: 29px; font-weight: 300">Chào mừng đến với HAT Cinema</h3>
-                            <p class="mg-bottom" style=" color: #FFFFFF; height: 29px; font-weight: 300">Sự hài lòng của khách hàng là mục tiêu chính của chúng tôi</p>
-                            
-                            <h2 class ="mg-bottom" style="height: 43px; color: #FFFFFF; font-weight: 600; font-size: 32px; line-height: 39px">Đã có tài khoản</h2>
-                            
-                            <a href="./login.html" class="toLoginPage btn">Dăng nhập</a>
-                           </div>
+                    <div class="col-lg-5 col-12 col-md-12">
+                        <div class="ds-form pd-form">
+                            <div>
+                                <div class="ds-form">
+                                    <div class="ds-line">
+                                        <h1 class="titleLogin mg-bottom font-weight-70 overflow-text">ĐĂNG KÝ TÀI KHOẢN</h1>
+                                        <hr class ="hr mg-bottom">
+                                    </div>
+                                    <h3 class="mg-bottom overflow-text font-weight-300 overflow-text text-white ds-font-sm-20" style=" height: 29px;">Chào mừng đến với HAT Cinema</h3>
+                                    <p class="mg-bottom overflow-text font-weight-300 overflow-text text-white ds-font-sm-14" style=" height: 29px;">Sự hài lòng của khách hàng là mục tiêu chính của chúng tôi</p>
+                                    <h2 class ="mg-bottom" style="color: #FFFFFF; font-weight: 600; font-size: 32px;">Đã có tài khoản?</h2>
+                                    <a href="./login.html" class="toLoginPage btn">Đăng nhập</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

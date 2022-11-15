@@ -6,15 +6,19 @@
 }
 
 body{
-    background: linear-gradient(#151223,#291947);   
+    background: linear-gradient(#151223,#291947);
 }   
+
+#main{
+    overflow: hidden;
+}
 
 .content{
     margin-top: 98px;
-    height: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px;
 }
 
 .login-input{
@@ -25,13 +29,18 @@ body{
     background: #2B2B2B;
     border-radius: 8px;
     color: white;
-    width: 332px;
+    width: 100%;
 }
 
 
 .login-btn{
     background-color: white;
     color: black;
+}
+
+.format-form{
+    width: 100%;
+    padding: 0 50px;
 }
 
 .login-input::placeholder{
@@ -47,18 +56,6 @@ body{
 }
 
 
-.ngang1{
-    position: absolute;
-    top:50%;
-    left:0; 
-}
-
-.ngang2{
-    position: absolute;
-    top:50%;
-    right:0;
-}
-
 .ds-ic{
     position: relative;
 }
@@ -69,11 +66,13 @@ body{
     left: 90px;
 }
 
-.col-5{
-    justify-content: center;
+.ds-form{
     margin: auto;
+    height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column; 
 }
 
 .line-vertical{
@@ -85,9 +84,8 @@ body{
     background: rgba(140, 60, 242, 0.18);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
-    height: 600px;
+    padding: 50px 0;
 }
-
 .vl{
     position: absolute;
     height: 464px;
@@ -95,19 +93,8 @@ body{
     left:50%;
 }
 
-.col-2{
-    margin: auto;
-}
-
-
-.des{
-    text-align: center;
-    position: relative;
-    margin-bottom: 10px;
-}
 
 .titleLogin{
-    font-weight:700 ; 
     line-height: 48.41px; 
     background: linear-gradient(90deg, #8C3CF2 -1.39%, #C8235D 118.42%); 
     -webkit-background-clip: text;
@@ -121,12 +108,16 @@ body{
     height: 0;
     text-align: center;
     position: absolute;
-    top: 33px;
-    left: 107px;
+    top: 35px;
+    left: 25px;
+}
+
+.ds-line{
+    position: relative;
 }
 
 .mg-bottom{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .toSignUpPage{
@@ -141,9 +132,46 @@ body{
     line-height: 37px;
 }
 
-@media (max-width: 786px){
-    .heading-login{
-        color:blue;
+@media (max-width: 992px){
+    .line-vertical{
+        display: none;
+    }
+    .pd-form{
+        padding: 25px;
+    }
+    .toLoginPage{
+        display: block;
+        width: 50%;
+    }
+    .logo-login {
+        position: absolute;
+        top: 10px;
+        left: 25px;
+    }
+
+    .format-form{
+        padding: 5px 5px;
     }
 }
 
+@media (max-width: 768px){
+    .titleLogin{
+        font-size: 30px
+    } 
+
+    .ds-font-sm-20{
+        font-size: 20px;
+    }
+    .ds-font-sm-14{
+        font-size: 14px;
+    }
+    .hr {
+        width: 186.04px;
+        border: 1px solid #FFFFFF;
+        height: 0;
+        text-align: center;
+        position: absolute;
+        top: 35px;
+        left: -5px;
+    }
+}
