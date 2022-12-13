@@ -36,6 +36,7 @@
 
 .navbar{
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 15.1%, rgba(0, 0, 0, 0.585) 86.98%);
+    opacity: 0.8;
 }
 
 .heading li:hover{

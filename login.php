@@ -1,3 +1,25 @@
+<?php
+
+    session_start(); 
+    include_once('./utils.php');
+
+    function login()
+    {
+    $email = getPOST('email');
+    $pass = getPOST('password');
+    $pass = md5($pass);
+
+    if (checkAccountLogin($email, $pass)) {
+        $_SESSION['username'] = $email;
+        return "";
+    }
+    return "Email or Password is incorrect.";
+    }
+        if (isset($_POST['login'])) {
+     $announce = login();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

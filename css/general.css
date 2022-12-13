@@ -10,6 +10,7 @@
     font-size: var(--text);
 }
 
+
 .overflow-twoline-text{
     width:100%;
     overflow: hidden;
