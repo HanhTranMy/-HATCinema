@@ -11,7 +11,7 @@
 	width: 100vw;
 	display: flex;
 	margin-bottom: 80px;
-
+	align-items: flex-start;
 }
 .info_child{
 	flex: 1;

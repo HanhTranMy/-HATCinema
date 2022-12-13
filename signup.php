@@ -1,3 +1,9 @@
+<?php
+   $annouce = "";
+    include_once("./register.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,14 +69,18 @@
                                 <div class="ds-form">
                                     <img src="./img/logo.png" width="50%" alt="" class="img-fluid mx-auto d-block mg-top d-block"></img>
                                     <h2 class="heading-login text-white" style="text-align: center; font-size: 24px;">Đăng ký tài khoản</h2>
-                                    <form action="" class = "format-form">
-                                        <input type="text" class="login-input" name="name" placeholder="Tên của bạn" style="display: block; padding: 10px;">
-                                        <input type="text" class="login-input" name="phone" placeholder="Số điện thoại" style="display: block; padding: 10px;">
-                                        <input type="text" class="login-input" name="email" placeholder="Email" style="display: block; padding: 10px;">
-                                        <input type="text" class="login-input" name="password" placeholder="Mật khẩu" style="display: block; padding: 10px;">
-                                        <input type="text" class="login-input" name="re-password" placeholder="Nhập lại mật khẩu" style="display: block; padding: 10px;">
-                
-                                        <button type="submit" class="btn login-input ds-ic text-black background-white font-weight-600 mt-5" style="padding: 15px">Đăng ký</button>
+                                    <form action="" class = "format-form" method="post" onSubmit="return checkForm()">
+                                        <input type="text" class="login-input" name="name" id="name" placeholder="Tên của bạn" style="display: block; padding: 10px;" required>
+                                        <input type="text" class="login-input" name="phone" id="phone" placeholder="Số điện thoại" style="display: block; padding: 10px;" required>
+                                        
+                                        <input type="email" class="login-input" name="email" id="email" placeholder="Email" style="display: block; padding: 10px;" required>
+                                        <input type="password" class="login-input" name="password" id="pass" placeholder="Mật khẩu" style="display: block; padding: 10px;" required>
+                                            
+                                        
+                                        <input type="password" class="login-input" name="re-password" id="re-pass" placeholder="Nhập lại mật khẩu" style="display: block; padding: 10px;" required>
+                                        <p id="annouce"><?php echo $annouce; ?></p>
+                                        <input type="submit" id="register" name="register" class="btn login-input ds-ic text-black background-white font-weight-600 mt-5" style="padding: 15px" value="Đăng ký">
+                                        
                                         <p class="text-white m-auto" style="text-align: center; background-color: #413961; padding: 10px 0px;">Hoặc</p>
                                         <button type="submit" class="btn login-input ds-ic font-weight-700" style="padding: 10px" ><img src="./img/ic_google.png" class="logo-login">Google</button>
                                         <button type="submit" class="btn login-input ds-ic font-weight-700" style="padding: 10px" ><img src="./img/ic_facebook.png" class="logo-login">Facebook</button>   
@@ -154,6 +164,8 @@
         </div>
 
     </div>
+
+    <script src="./js/signup.js"></script>
 
 </body>
 </html>

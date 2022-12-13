@@ -1,12 +1,3 @@
-<?php 
-    session_start();
-    $conn = mysqli_connect('localhost', 'root', '', 'BREAKOUTBRICK');
-    
-    if (!isset($_SESSION['username'])) {
-        header('location: login.php');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

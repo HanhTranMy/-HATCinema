@@ -13,14 +13,14 @@ function getPOST($key)
 
 function connectData()
 {
-    $conn = mysqli_connect("localhost", "root", "", "breakoutbrick");
+    $conn = mysqli_connect("localhost", "root", "", "xemphimthat");
     mysqli_set_charset($conn, 'utf8');
     return $conn;
 }
 
 function checkAccountLogin($user, $pass)
 {
-    $data =  selectData($user, 'user', 'username');
+    $data =  selectData($user, 'taikhoan', 'email');
 
     if ($data == null) {
         return false;
@@ -52,6 +52,29 @@ function selectData($user, $table, $id,)
 {
     $statement = "SELECT * FROM $table WHERE $id = '$user'";
     return getData($statement, 1);
+}
+
+function addData($table, $key, $values)
+{
+    $statement  = "INSERT INTO $table ($key) VALUES ($values)";
+    getData($statement, 0);
+}
+
+function updateData($table, $values, $user)
+{
+    $statement  = "UPDATE $table SET " . $values . " WHERE email = '$user'";
+    getData($statement, 0);
+}
+
+function checkAccountRegis($user)
+{
+
+    $data =  selectData($user, 'taikhoan', 'email');
+    if ($data == "") {
+        return true;
+    }
+
+    return false;
 }
 
 ?>
