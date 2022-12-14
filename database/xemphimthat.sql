@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
+<<<<<<< HEAD
 -- Thời gian đã tạo: Th12 14, 2022 lúc 12:35 PM
+=======
+-- Thời gian đã tạo: Th12 14, 2022 lúc 10:31 AM
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 8.1.10
 
@@ -24,6 +28,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Cấu trúc bảng cho bảng `bapnuoc`
 --
 
@@ -36,14 +41,21 @@ CREATE TABLE `bapnuoc` (
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 -- Cấu trúc bảng cho bảng `binhluan`
 --
 
 CREATE TABLE `binhluan` (
   `maBL` varchar(8) NOT NULL,
+<<<<<<< HEAD
   `maPhim` varchar(8) NOT NULL,
   `noiDung` varchar(1000) DEFAULT NULL,
   `email` varchar(256) NOT NULL
+=======
+  `maPhim` varchar(8) DEFAULT NULL,
+  `noiDung` varchar(1000) DEFAULT NULL
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -54,10 +66,15 @@ CREATE TABLE `binhluan` (
 
 CREATE TABLE `chitiethoadon` (
   `maHD` varchar(8) NOT NULL,
+<<<<<<< HEAD
   `soluongXC` int(11) DEFAULT NULL,
   `maXC` varchar(8) NOT NULL,
   `maBapNuoc` varchar(8) NOT NULL,
   `soluongBapNuoc` int(11) NOT NULL
+=======
+  `soluong` int(11) DEFAULT NULL,
+  `maXC` varchar(8) NOT NULL
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -68,6 +85,11 @@ CREATE TABLE `chitiethoadon` (
 
 CREATE TABLE `ghe` (
   `maGhe` varchar(8) NOT NULL,
+<<<<<<< HEAD
+=======
+  `maRap` varchar(8) NOT NULL,
+  `maPhong` varchar(8) NOT NULL,
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
   `tinhtrang` bit(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -79,9 +101,15 @@ CREATE TABLE `ghe` (
 
 CREATE TABLE `hoadon` (
   `maHD` varchar(8) NOT NULL,
+<<<<<<< HEAD
   `ngayDat` date NOT NULL,
   `email` varchar(256) NOT NULL,
   `tongTien` int(11) NOT NULL,
+=======
+  `ngayDat` date DEFAULT NULL,
+  `email` varchar(256) DEFAULT NULL,
+  `tongTien` int(11) DEFAULT NULL,
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
   `maKM` varchar(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -94,10 +122,17 @@ CREATE TABLE `hoadon` (
 CREATE TABLE `khuyenmai` (
   `maKM` varchar(8) NOT NULL,
   `anh` varchar(255) DEFAULT NULL,
+<<<<<<< HEAD
   `chuDe` varchar(255) NOT NULL,
   `noiDung` varchar(1000) NOT NULL,
   `ngayBD` date NOT NULL,
   `ngayKT` date NOT NULL
+=======
+  `chuDe` varchar(255) DEFAULT NULL,
+  `noiDung` varchar(1000) DEFAULT NULL,
+  `ngayBD` date DEFAULT NULL,
+  `ngayKT` date DEFAULT NULL
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -108,6 +143,7 @@ CREATE TABLE `khuyenmai` (
 
 CREATE TABLE `phim` (
   `maPhim` varchar(8) NOT NULL,
+<<<<<<< HEAD
   `ngayBD` date NOT NULL,
   `ngayKT` date NOT NULL,
   `anh` varchar(255) DEFAULT NULL,
@@ -123,6 +159,23 @@ CREATE TABLE `phim` (
   `trangThai` bit(1) NOT NULL DEFAULT b'0',
   `video` varchar(255) DEFAULT NULL,
   `maPhong` varchar(8) NOT NULL
+=======
+  `ngayBD` date DEFAULT NULL,
+  `ngayKT` date DEFAULT NULL,
+  `anh` varchar(255) DEFAULT NULL,
+  `daoDien` varchar(255) DEFAULT NULL,
+  `dienVien` varchar(255) DEFAULT NULL,
+  `gia` int(11) DEFAULT NULL,
+  `hangPhim` varchar(255) DEFAULT NULL,
+  `phienBan` varchar(255) DEFAULT NULL,
+  `quocGia` varchar(255) DEFAULT NULL,
+  `tenPhim` varchar(255) DEFAULT NULL,
+  `theLoai` varchar(255) DEFAULT NULL,
+  `thoiLuong` int(11) DEFAULT NULL,
+  `trangThai` bit(1) DEFAULT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  `maRap` varchar(8) DEFAULT NULL
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -133,8 +186,12 @@ CREATE TABLE `phim` (
 
 CREATE TABLE `phong` (
   `maPhong` varchar(8) NOT NULL,
+<<<<<<< HEAD
   `ghichu` varchar(255) DEFAULT NULL,
   `maGhe` varchar(8) NOT NULL
+=======
+  `ghichu` varchar(255) DEFAULT NULL
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -145,8 +202,12 @@ CREATE TABLE `phong` (
 
 CREATE TABLE `rap` (
   `maRap` varchar(8) NOT NULL,
+<<<<<<< HEAD
   `diachi` varchar(255) DEFAULT NULL,
   `maPhong` varchar(8) NOT NULL
+=======
+  `diachi` varchar(255) DEFAULT NULL
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -184,8 +245,14 @@ INSERT INTO `taikhoan` (`ten`, `email`, `matKhau`, `admin`, `sdt`) VALUES
 CREATE TABLE `xuatchieu` (
   `maXC` varchar(8) NOT NULL,
   `ngaygio` date NOT NULL,
+<<<<<<< HEAD
   `maPhong` varchar(8) NOT NULL,
   `maPhim` varchar(8) NOT NULL
+=======
+  `thoiluong` date DEFAULT NULL,
+  `maPhim` varchar(8) NOT NULL,
+  `maPhong` varchar(8) NOT NULL
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -193,40 +260,63 @@ CREATE TABLE `xuatchieu` (
 --
 
 --
+<<<<<<< HEAD
 -- Chỉ mục cho bảng `bapnuoc`
 --
 ALTER TABLE `bapnuoc`
   ADD PRIMARY KEY (`maBapNuoc`);
 
 --
+=======
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 -- Chỉ mục cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
   ADD PRIMARY KEY (`maBL`),
+<<<<<<< HEAD
   ADD KEY `maPhim` (`maPhim`),
   ADD KEY `email` (`email`);
+=======
+  ADD KEY `maPhim` (`maPhim`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Chỉ mục cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`maHD`),
   ADD KEY `maXC` (`maXC`),
   ADD KEY `maBapNuoc` (`maBapNuoc`);
+=======
+  ADD PRIMARY KEY (`maHD`,`maXC`),
+  ADD KEY `maXC` (`maXC`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Chỉ mục cho bảng `ghe`
 --
 ALTER TABLE `ghe`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`maGhe`);
+=======
+  ADD PRIMARY KEY (`maGhe`),
+  ADD KEY `maRap` (`maRap`),
+  ADD KEY `maPhong` (`maPhong`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Chỉ mục cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`maHD`),
+<<<<<<< HEAD
   ADD KEY `email` (`email`),
   ADD KEY `maKM` (`maKM`);
+=======
+  ADD KEY `maKM` (`maKM`),
+  ADD KEY `email` (`email`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Chỉ mục cho bảng `khuyenmai`
@@ -238,22 +328,34 @@ ALTER TABLE `khuyenmai`
 -- Chỉ mục cho bảng `phim`
 --
 ALTER TABLE `phim`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`maPhim`),
   ADD KEY `maPhong` (`maPhong`);
+=======
+  ADD PRIMARY KEY (`maPhim`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Chỉ mục cho bảng `phong`
 --
 ALTER TABLE `phong`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`maPhong`),
   ADD KEY `maGhe` (`maGhe`);
+=======
+  ADD PRIMARY KEY (`maPhong`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Chỉ mục cho bảng `rap`
 --
 ALTER TABLE `rap`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`maRap`),
   ADD KEY `maPhong` (`maPhong`);
+=======
+  ADD PRIMARY KEY (`maRap`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Chỉ mục cho bảng `taikhoan`
@@ -266,8 +368,13 @@ ALTER TABLE `taikhoan`
 --
 ALTER TABLE `xuatchieu`
   ADD PRIMARY KEY (`maXC`),
+<<<<<<< HEAD
   ADD KEY `maPhong` (`maPhong`),
   ADD KEY `maPhim` (`maPhim`);
+=======
+  ADD KEY `maPhim` (`maPhim`),
+  ADD KEY `maPhong` (`maPhong`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -277,20 +384,37 @@ ALTER TABLE `xuatchieu`
 -- Các ràng buộc cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
+<<<<<<< HEAD
   ADD CONSTRAINT `binhluan_ibfk_1` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`),
   ADD CONSTRAINT `binhluan_ibfk_2` FOREIGN KEY (`email`) REFERENCES `taikhoan` (`email`);
+=======
+  ADD CONSTRAINT `binhluan_ibfk_1` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Các ràng buộc cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
+<<<<<<< HEAD
   ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`maXC`) REFERENCES `xuatchieu` (`maXC`),
   ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`maBapNuoc`) REFERENCES `bapnuoc` (`maBapNuoc`);
+=======
+  ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`maHD`) REFERENCES `hoadon` (`maHD`),
+  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`maXC`) REFERENCES `xuatchieu` (`maXC`);
+
+--
+-- Các ràng buộc cho bảng `ghe`
+--
+ALTER TABLE `ghe`
+  ADD CONSTRAINT `ghe_ibfk_1` FOREIGN KEY (`maRap`) REFERENCES `rap` (`maRap`),
+  ADD CONSTRAINT `ghe_ibfk_2` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
+<<<<<<< HEAD
   ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`email`) REFERENCES `taikhoan` (`email`),
   ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`maKM`) REFERENCES `khuyenmai` (`maKM`);
 
@@ -311,13 +435,22 @@ ALTER TABLE `phong`
 --
 ALTER TABLE `rap`
   ADD CONSTRAINT `rap_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`);
+=======
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`maKM`) REFERENCES `khuyenmai` (`maKM`),
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`email`) REFERENCES `taikhoan` (`email`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 
 --
 -- Các ràng buộc cho bảng `xuatchieu`
 --
 ALTER TABLE `xuatchieu`
+<<<<<<< HEAD
   ADD CONSTRAINT `xuatchieu_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`),
   ADD CONSTRAINT `xuatchieu_ibfk_2` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`);
+=======
+  ADD CONSTRAINT `xuatchieu_ibfk_1` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`),
+  ADD CONSTRAINT `xuatchieu_ibfk_2` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`);
+>>>>>>> 25b9a04014763fa64c7bfcd81d32ce641774001e
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
