@@ -21,36 +21,8 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top mg" style="background-color:black;">  
-        <div class="container-fluid">   
-            <a class="navbar-brand" href="#"><img src="./img/logo.png" width="100%" height="72px"></img></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <?php include_once('./navbar.php') ?>
 
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav mr-auto heading">
-                    <li class="nav-item active"><a class="nav-link text-white" href="#">MUA VÉ</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">RẠP PHIM</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">KHUYẾN MÃI</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">THÀNH VIÊN</a></li>
-                    <li class="nav-item">
-                        <form class="form-inline my-2 my-lg-0 test">
-                            <img src="./img/ic_search.png" alt="" class="img-search">
-                            <input class="form-control input-search" type="search" aria-label="Search" size = 35;>
-                        </form>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav mr-5 heading">
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Login/Đăng ký <span> <img src="./img/ic_user.png" alt="" class ="img-user"> </span></a></li>
-                </ul>  
-   
-            </div>   
-
-        </div>
-    </nav>
-</div>
 
     <!-- Start a carousel -->
      <div id="demo" class="carousel slide" data-ride="carousel"> -->
@@ -243,51 +215,7 @@
       <!-- End a promotion -->
 
       <!-- Start footer -->
-      <div class="footer">
-        <div class="logo">
-            <img src="./img/logo.png" alt="HAT cinema logo">
-        </div>
-        <div class="info">
-            <div class="thong_tin_lien_he info_child">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">THÔNG TIN LIÊN HỆ</div>
-                    <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2">
-                        Email: hatcinema@gmail.com <br>
-                        Hotline: 1900 0000 <br>
-                        Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày làm việc)
-                    </div>
-                </div>
-            </div>
-            <div class="thanh_vien info_child">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">THÀNH VIÊN</div>
-                    <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2">
-                        Thông tin tài khoản <br>
-                        Lịch sử mua vé <br>
-                        Đánh giá
-                    </div>
-                </div>
-            </div>
-            <div class="dieu_khoan_su_dung info_child">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">ĐIỂU KHOẢN SỬ DỤNG</div>
-                    <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2">
-                        Điều khoản chung<br>
-                        Điều khoản giao dịch<br>
-                        Chính sách thanh toán<br>
-                        Chính sách bảo mật<br>
-                        Câu hỏi thường gặp
-                    </div>
-                </div>
-            </div>
-            <div class="ket_noi_voi_chung_toi info_child">
-                <div class="row">
-                    <div class="col-md-12 offset-md-2">KẾT NỐI VỚI CHÚNG TÔI</div>
-                    <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <?php include_once('./footer.php') ?>
       <!-- End footer -->
 </body>
 </html>
