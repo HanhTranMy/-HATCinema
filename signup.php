@@ -79,7 +79,7 @@
                                     <h3 class="mg-bottom overflow-text font-weight-300 overflow-text text-white ds-font-sm-20" style=" height: 29px;">Chào mừng đến với HAT Cinema</h3>
                                     <p class="mg-bottom overflow-text font-weight-300 overflow-text text-white ds-font-sm-14" style=" height: 29px;">Sự hài lòng của khách hàng là mục tiêu chính của chúng tôi</p>
                                     <h2 class ="mg-bottom" style="color: #FFFFFF; font-weight: 600; font-size: 32px;">Đã có tài khoản?</h2>
-                                    <a href="./login.html" class="toLoginPage btn">Đăng nhập</a>
+                                    <a href="./login.php" class="toLoginPage btn">Đăng nhập</a>
                                 </div>
                             </div>
                         </div>

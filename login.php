@@ -56,14 +56,14 @@
                            <div>
                                 <div class="ds-form">
                                     <img src="./img/logo.png" alt="" width="50%" class="img-fluid mx-auto d-block"></img>
-                                    <h2 class="heading-login text-white" style="font-size: 24px; line-height: 42px;">Log in to HAT</h2>
+                                    <h2 class="heading-login text-white" style="font-size: 24px; line-height: 42px;">Đăng nhập</h2>
                                     <form action="" class ="format-form">
                                         <input type="text" class="login-input" name="email" placeholder="Email" style="display: block; ; padding: 10px;">
-                                        <input type="text" class="login-input" name="password" placeholder="Password" style="display: block; padding: 10px;">
-                                        <p class="text-white text-right">Forgot your password</p>
-                                        <button type="submit" class="btn login-input ds-ic text-black background-white font-weight-600" style="padding: 15px">Login</button>
+                                        <input type="text" class="login-input" name="password" placeholder="Mật khẩu" style="display: block; padding: 10px;">
+                                        <p class="text-white text-right">Quên mật khẩu</p>
+                                        <button type="submit" class="btn login-input ds-ic text-black background-white font-weight-600" style="padding: 15px">Đăng nhập</button>
                                         <div>
-                                            <p class="text-white" style=" text-align: center; background-color: #413961; padding: 10px 0px;"> or continue with </p>
+                                            <p class="text-white" style=" text-align: center; background-color: #413961; padding: 10px 0px;">Hoặc</p>
                                         </div>
                                         <button type="submit" class="btn login-input ds-ic font-weight-700" style = "padding:10px"><img src="./img/ic_google.png" class="logo-login">Google</button>
                                         <button type="submit" class="btn login-input ds-ic font-weight-700" style = "padding:10px"><img src="./img/ic_facebook.png" class="logo-login">Facebook</button>   
@@ -90,7 +90,7 @@
                                     <h3 class="mg-bottom font-weight-300 overflow-text text-white ds-font-sm-20" style=" height: 29px;">Chào mừng đến với HAT Cinema</h3>
                                     <p class="mg-bottom font-weight-300 overflow-text text-white ds-font-sm-14" style=" color: #FFFFFF; height: 29px;">Sự hài lòng của khách hàng là mục tiêu chính của chúng tôi</p>
                                     <h2 class ="mg-bottom font-weight-600 font-size-32" style=" height: 43px; color: #FFFFFF;">Chưa có tài khoản?</h2>
-                                    <a href="./signup.html" class="toSignUpPage btn">Đăng ký</a>
+                                    <a href="./signup.php" class="toSignUpPage btn">Đăng ký</a>
                                 </div>
                             </div>
                         </div>

@@ -21,7 +21,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav mr-5 heading">
-                    <li class="nav-item"><a class="nav-link text-white" href="./login.php">Login<span> <img src="./img/ic_user.png" alt="" class ="img-user"> </span></a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="./login.php">Đăng nhập<span> <img src="./img/ic_user.png" alt="" class ="img-user"> </span></a></li>
                 </ul>  
    
             </div>   
