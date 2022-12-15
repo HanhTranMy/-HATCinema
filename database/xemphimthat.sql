@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 14, 2022 lúc 12:35 PM
+-- Thời gian đã tạo: Th12 15, 2022 lúc 05:30 AM
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 8.1.10
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bapnuoc` (
-  `maBapNuoc` varchar(8) NOT NULL,
+  `maBapNuoc` int(11) NOT NULL,
   `tenSP` varchar(100) DEFAULT NULL,
   `gia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,8 +40,8 @@ CREATE TABLE `bapnuoc` (
 --
 
 CREATE TABLE `binhluan` (
-  `maBL` varchar(8) NOT NULL,
-  `maPhim` varchar(8) NOT NULL,
+  `maBL` int(11) NOT NULL,
+  `maPhim` int(11) NOT NULL,
   `noiDung` varchar(1000) DEFAULT NULL,
   `email` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -53,7 +53,7 @@ CREATE TABLE `binhluan` (
 --
 
 CREATE TABLE `chitiethoadon` (
-  `maHD` varchar(8) NOT NULL,
+  `maHD` int(11) NOT NULL,
   `soluongXC` int(11) DEFAULT NULL,
   `maXC` varchar(8) NOT NULL,
   `maBapNuoc` varchar(8) NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE `chitiethoadon` (
 --
 
 CREATE TABLE `ghe` (
-  `maGhe` varchar(8) NOT NULL,
+  `maGhe` int(11) NOT NULL,
   `tinhtrang` bit(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -78,11 +78,11 @@ CREATE TABLE `ghe` (
 --
 
 CREATE TABLE `hoadon` (
-  `maHD` varchar(8) NOT NULL,
+  `maHD` int(11) NOT NULL,
   `ngayDat` date NOT NULL,
   `email` varchar(256) NOT NULL,
   `tongTien` int(11) NOT NULL,
-  `maKM` varchar(8) DEFAULT NULL
+  `maKM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -92,7 +92,7 @@ CREATE TABLE `hoadon` (
 --
 
 CREATE TABLE `khuyenmai` (
-  `maKM` varchar(8) NOT NULL,
+  `maKM` int(11) NOT NULL,
   `anh` varchar(255) DEFAULT NULL,
   `chuDe` varchar(255) NOT NULL,
   `noiDung` varchar(1000) NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE `khuyenmai` (
 --
 
 CREATE TABLE `phim` (
-  `maPhim` varchar(8) NOT NULL,
+  `maPhim` int(11) NOT NULL,
   `ngayBD` date NOT NULL,
   `ngayKT` date NOT NULL,
   `anh` varchar(255) DEFAULT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `phim` (
   `thoiLuong` int(11) NOT NULL,
   `trangThai` bit(1) NOT NULL DEFAULT b'0',
   `video` varchar(255) DEFAULT NULL,
-  `maPhong` varchar(8) NOT NULL
+  `maPhong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -132,9 +132,9 @@ CREATE TABLE `phim` (
 --
 
 CREATE TABLE `phong` (
-  `maPhong` varchar(8) NOT NULL,
+  `maPhong` int(11) NOT NULL,
   `ghichu` varchar(255) DEFAULT NULL,
-  `maGhe` varchar(8) NOT NULL
+  `maGhe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -144,9 +144,9 @@ CREATE TABLE `phong` (
 --
 
 CREATE TABLE `rap` (
-  `maRap` varchar(8) NOT NULL,
+  `maRap` int(11) NOT NULL,
   `diachi` varchar(255) DEFAULT NULL,
-  `maPhong` varchar(8) NOT NULL
+  `maPhong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -182,10 +182,10 @@ INSERT INTO `taikhoan` (`ten`, `email`, `matKhau`, `admin`, `sdt`) VALUES
 --
 
 CREATE TABLE `xuatchieu` (
-  `maXC` varchar(8) NOT NULL,
+  `maXC` int(11) NOT NULL,
   `ngaygio` date NOT NULL,
-  `maPhong` varchar(8) NOT NULL,
-  `maPhim` varchar(8) NOT NULL
+  `maPhong` int(11) NOT NULL,
+  `maPhim` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -277,47 +277,7 @@ ALTER TABLE `xuatchieu`
 -- Các ràng buộc cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  ADD CONSTRAINT `binhluan_ibfk_1` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`),
   ADD CONSTRAINT `binhluan_ibfk_2` FOREIGN KEY (`email`) REFERENCES `taikhoan` (`email`);
-
---
--- Các ràng buộc cho bảng `chitiethoadon`
---
-ALTER TABLE `chitiethoadon`
-  ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`maXC`) REFERENCES `xuatchieu` (`maXC`),
-  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`maBapNuoc`) REFERENCES `bapnuoc` (`maBapNuoc`);
-
---
--- Các ràng buộc cho bảng `hoadon`
---
-ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`email`) REFERENCES `taikhoan` (`email`),
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`maKM`) REFERENCES `khuyenmai` (`maKM`);
-
---
--- Các ràng buộc cho bảng `phim`
---
-ALTER TABLE `phim`
-  ADD CONSTRAINT `phim_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`);
-
---
--- Các ràng buộc cho bảng `phong`
---
-ALTER TABLE `phong`
-  ADD CONSTRAINT `phong_ibfk_1` FOREIGN KEY (`maGhe`) REFERENCES `ghe` (`maGhe`);
-
---
--- Các ràng buộc cho bảng `rap`
---
-ALTER TABLE `rap`
-  ADD CONSTRAINT `rap_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`);
-
---
--- Các ràng buộc cho bảng `xuatchieu`
---
-ALTER TABLE `xuatchieu`
-  ADD CONSTRAINT `xuatchieu_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`),
-  ADD CONSTRAINT `xuatchieu_ibfk_2` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
