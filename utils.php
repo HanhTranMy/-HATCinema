@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
 function getPOST($key)
 {
 
@@ -112,7 +114,11 @@ function login()
     $pass = getPOST('password');
 
     if (checkAccountLogin($email, $pass)) {
-        $_SESSION['username'] = $email;
+
+        $statement = "SELECT ten FROM taikhoan WHERE email = '$email'";
+        $data =  getData($statement,1);
+        $_SESSION['username'] = $data;
+        echo $_SESSION['username'] ;
         header('location: index.php');
         return "";
     }
