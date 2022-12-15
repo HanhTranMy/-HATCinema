@@ -43,7 +43,7 @@
                                     <form action="" class ="format-form" method='post'>
                                         <input type="text" class="login-input" name="email" placeholder="Email" style="display: block; ; padding: 10px;">
                                         <input type="password" class="login-input" name="password" placeholder="Mật khẩu" style="display: block; padding: 10px;">
-                                        <?php echo  $announce;?>
+                                        <p id="annouce"><?php echo $announce; ?></p>
                                         <p class="text-white text-right">Quên mật khẩu</p>
                                         <input name='login' type="submit" class="btn login-input ds-ic text-black background-white font-weight-600" style="padding: 15px" value='Đăng nhập' >
                                         <div>
