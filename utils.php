@@ -20,13 +20,13 @@ function connectData()
 
 function checkAccountLogin($user, $pass)
 {
-    $data =  selectData($user, 'taikhoan', 'email');
-
+    $data =  selectData($user,'taikhoan', 'email');
+    
     if ($data == null) {
         return false;
     } else {
-        if ($data['pass'] == $pass) {
-            header('location: index.php');
+        if ($data['matKhau'] == $pass) {
+            header('location: ./web_ck/HAT');
             return true;
         } else {
             return false;
@@ -77,4 +77,47 @@ function checkAccountRegis($user)
     return false;
 }
 
-?>
+
+if (isset($_POST['register'])) {
+    $announce = register();
+}
+
+function register(){
+
+$email = getPOST('email');
+
+$pass = getPOST('pass');
+$name = getPOST('name');
+$sdt = getPOST('phone');
+
+$values = "'$name','$email','$pass','$sdt',0";
+$valuedefault = "'$email'";
+
+
+if (checkAccountRegis($email)) {
+    addData('taikhoan','ten,email,matKhau,sdt,admin', $values);
+
+    return "You have successfully registered.<br/> Please login.";
+}
+return  "The account has been created.";
+}
+
+if (isset($_POST['login'])) {
+    $announce = login();
+}
+
+function login()
+{
+    $email = getPOST('email');
+    $pass = getPOST('password');
+
+    if (checkAccountLogin($email, $pass)) {
+        $_SESSION['username'] = $email;
+        header('location: index.php');
+        return "";
+    }
+    return "Email or Password is incorrect.";
+}
+if (isset($_POST['login'])) {
+    $announce = login();
+}
