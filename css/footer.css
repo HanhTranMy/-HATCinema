@@ -19,7 +19,7 @@
 .info_child{
 	flex: 1;
 	color: #fff;
-	font-family: 'Inter', sans-serif;
+	/* font-family: 'Inter', sans-serif; */
 	font-weight: 800;
 
 	display: flex;
@@ -28,7 +28,7 @@
 }
 .col-md-6 .offset-md-3{
 	color: #fff;
-	font-family: 'Inter', sans-serif;
+	/* font-family: 'Inter', sans-serif; */
 	font-weight: 800;
 	text-align: center;
 }
