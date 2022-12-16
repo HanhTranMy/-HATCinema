@@ -1,23 +1,6 @@
 <?php
-
-    session_start(); 
+    $announce = "";
     include_once('./utils.php');
-
-    function login()
-    {
-    $email = getPOST('email');
-    $pass = getPOST('password');
-    $pass = md5($pass);
-
-    if (checkAccountLogin($email, $pass)) {
-        $_SESSION['username'] = $email;
-        return "";
-    }
-    return "Email or Password is incorrect.";
-    }
-        if (isset($_POST['login'])) {
-     $announce = login();
-}
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +40,12 @@
                                 <div class="ds-form">
                                     <img src="./img/logo.png" alt="" width="50%" class="img-fluid mx-auto d-block"></img>
                                     <h2 class="heading-login text-white" style="font-size: 24px; line-height: 42px;">Đăng nhập</h2>
-                                    <form action="" class ="format-form">
+                                    <form action="" class ="format-form" method='post'>
                                         <input type="text" class="login-input" name="email" placeholder="Email" style="display: block; ; padding: 10px;">
-                                        <input type="text" class="login-input" name="password" placeholder="Mật khẩu" style="display: block; padding: 10px;">
+                                        <input type="password" class="login-input" name="password" placeholder="Mật khẩu" style="display: block; padding: 10px;">
+                                        <p id="annouce"><?php echo $announce; ?></p>
                                         <p class="text-white text-right">Quên mật khẩu</p>
-                                        <button type="submit" class="btn login-input ds-ic text-black background-white font-weight-600" style="padding: 15px">Đăng nhập</button>
+                                        <input name='login' type="submit" class="btn login-input ds-ic text-black background-white font-weight-600" style="padding: 15px" value='Đăng nhập' >
                                         <div>
                                             <p class="text-white" style=" text-align: center; background-color: #413961; padding: 10px 0px;">Hoặc</p>
                                         </div>

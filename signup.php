@@ -1,6 +1,6 @@
 <?php
-   $annouce = "";
-    include_once("./register.php");
+   $announce = "";
+   require_once('./utils.php');
 
 ?>
 
@@ -50,7 +50,7 @@
                                             
                                         
                                         <input type="password" class="login-input" name="re-password" id="re-pass" placeholder="Nhập lại mật khẩu" style="display: block; padding: 10px;" required>
-                                        <p id="annouce"><?php echo $annouce; ?></p>
+                                        <p id="annouce"><?php echo $announce; ?></p>
                                         <input type="submit" id="register" name="register" class="btn login-input ds-ic text-black background-white font-weight-600 mt-5" style="padding: 15px" value="Đăng ký">
                                         
                                         <p class="text-white m-auto" style="text-align: center; background-color: #413961; padding: 10px 0px;">Hoặc</p>
