@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,165 +20,121 @@
 
 
 </head>
+
 <body>
 
     <?php include_once('./navbar.php') ?>
 
 
     <!-- Start a carousel -->
-     <div id="demo" class="carousel slide" data-ride="carousel"> -->
+    <div id="demo" class="carousel slide" data-ride="carousel"> -->
 
-      <!-- Indicators -->
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-      
-      <!-- The slideshow -->
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./img/banner-1.jpg" alt="Phim Kẻ Độc Hành" width="100%" height="666">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./img/banner-1.jpg" alt="Phim Kẻ Độc Hành" width="100%" height="666">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner-2.jpg" alt="Phim Avergea" width="100%" height="666">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner-3.jpg" alt="Phim Rio 2" width="100%" height="666">
+            </div>
         </div>
-        <div class="carousel-item">
-          <img src="./img/banner-2.jpg" alt="Phim Avergea" width="100%" height="666">
-        </div>
-        <div class="carousel-item">
-          <img src="./img/banner-3.jpg" alt="Phim Rio 2" width="100%" height="666">
-        </div>
-      </div>
     </div>
     <!-- End a carousel -->
 
     <!-- Start a coming soon -->
     <div class="container show-film">
-      <div class="row heading-film">
-        <div class="col-6">
-          <h3 class="font-weight-700 text-white title-large">PHIM SẮP CHIẾU</h3>
-        </div>
-        <div class="col-6 d-flex justify-content-end">
-          <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
-        </div>
-      </div>
-      <div class="row">
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card" >
-                <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                <div class="card-body">
-                    <a href="#">
-                        <h4 class="card-title overflow-text">John Doe</h4>
-                        <p class="card-text overflow-text">Some example text.</p>
-                    </a>
-                </div>
+        <div class="row heading-film">
+            <div class="col-6">
+                <h3 class="font-weight-700 text-white title-large">PHIM SẮP CHIẾU</h3>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
             </div>
         </div>
+        <div class="row">
 
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card" >
-                <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                <div class="card-body">
-                    <a href="#">
-                        <h4 class="card-title overflow-text">John Doe</h4>
-                        <p class="card-text overflow-text">Some example text.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
+            
 
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card" >
-                <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                <div class="card-body">
-                    <a href="#">
-                        <h4 class="card-title overflow-text">John Doe</h4>
-                        <p class="card-text overflow-text">Some example text.</p>
-                    </a>
-                </div>
-            </div>
         </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card" >
-                <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                <div class="card-body">
-                    <a href="#">
-                        <h4 class="card-title overflow-text">John Doe</h4>
-                        <p class="card-text overflow-text">Some example text.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
-      </div>
+    </div>
     </div>
     <!-- End  a coming soon -->
 
-      <!-- Start a coming soon -->
-      <div class="container show-film">
+    <!-- Start a coming soon -->
+    <div class="container show-film">
         <div class="row heading-film">
-          <div class="col-6">
-            <h3 class="font-weight-700 text-white title-large">ĐANG CHIẾU</h3>
-          </div>
-          <div class="col-6 d-flex justify-content-end">
-            <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
-          </div>
+            <div class="col-6">
+                <h3 class="font-weight-700 text-white title-large">ĐANG CHIẾU</h3>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
+            </div>
         </div>
         <div class="row">
-  
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-              <div class="card" >
-                  <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                  <div class="card-body">
-                      <a href="#">
-                          <h4 class="card-title overflow-text">John Doe</h4>
-                          <p class="card-text overflow-text">Some example text.</p>
-                      </a>
-                  </div>
-              </div>
-          </div>
-  
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-              <div class="card" >
-                  <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                  <div class="card-body">
-                      <a href="#">
-                          <h4 class="card-title overflow-text">John Doe</h4>
-                          <p class="card-text overflow-text">Some example text.</p>
-                      </a>
-                  </div>
-              </div>
-          </div>
-  
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-              <div class="card" >
-                  <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                  <div class="card-body">
-                      <a href="#">
-                          <h4 class="card-title overflow-text">John Doe</h4>
-                          <p class="card-text overflow-text">Some example text.</p>
-                      </a>
-                  </div>
-              </div>
-          </div>
-  
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-              <div class="card" >
-                  <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                  <div class="card-body">
-                      <a href="#">
-                          <h4 class="card-title overflow-text">John Doe</h4>
-                          <p class="card-text overflow-text">Some example text.</p>
-                      </a>
-                  </div>
-              </div>
-          </div>
-          </div>
-        </div>
-      </div>
-      <!-- End  a coming soon -->
 
-      <!-- Start a promotion -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
+                    <div class="card-body">
+                        <a href="#">
+                            <h4 class="card-title overflow-text">John Doe</h4>
+                            <p class="card-text overflow-text">Some example text.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
+                    <div class="card-body">
+                        <a href="#">
+                            <h4 class="card-title overflow-text">John Doe</h4>
+                            <p class="card-text overflow-text">Some example text.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
+                    <div class="card-body">
+                        <a href="#">
+                            <h4 class="card-title overflow-text">John Doe</h4>
+                            <p class="card-text overflow-text">Some example text.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
+                    <div class="card-body">
+                        <a href="#">
+                            <h4 class="card-title overflow-text">John Doe</h4>
+                            <p class="card-text overflow-text">Some example text.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End  a coming soon -->
+
+    <!-- Start a promotion -->
     <div class="container show-film" style="margin-bottom: 6.563em; ">
         <div class="row">
             <div class="col-12">
@@ -189,33 +146,34 @@
                 <div class="row  content-promotion content-promotion-large">
                     <img class="img-promotion-large" src="./img/22.jpg">
                 </div>
-                <div class="row content-promotion content-promotion-large" >
+                <div class="row content-promotion content-promotion-large">
                     <img class="img-promotion-large" src="./img/22.jpg">
                 </div>
             </div>
             <div class="col-3">
                 <div class="row">
 
-                    <div class="col-12 content-promotion content-promotion-small" >
-                        <img  src="./img/22.jpg">
+                    <div class="col-12 content-promotion content-promotion-small">
+                        <img src="./img/22.jpg">
                     </div>
 
-                    <div class="col-12 content-promotion content-promotion-small" >
-                            <img src="./img/22.jpg">
+                    <div class="col-12 content-promotion content-promotion-small">
+                        <img src="./img/22.jpg">
                     </div>
 
-                    <div class="col-12 content-promotion content-promotion-small" >
-                            <img src="./img/22.jpg">
+                    <div class="col-12 content-promotion content-promotion-small">
+                        <img src="./img/22.jpg">
                     </div>
 
-                </div>            
-            </div>            
+                </div>
+            </div>
         </div>
     </div>
-      <!-- End a promotion -->
+    <!-- End a promotion -->
 
-      <!-- Start footer -->
-      <?php include_once('./footer.php') ?>
-      <!-- End footer -->
+    <!-- Start footer -->
+    <?php include_once('./footer.php') ?>
+    <!-- End footer -->
 </body>
+
 </html>
