@@ -70,6 +70,13 @@ input::placeholder {
   color: #ffffff;
 }
 
+.apply_coupon_button {
+  background: rgb(200, 35, 93);
+  /* height: 49px; */
+  /* width: 379px; */
+  /* border-radius: 25px; */
+}
+
 .section {
   height: 1050px;
   width: 655px;
