@@ -37,7 +37,7 @@ body{
 
  /* Start a card film */
 .card-title{
-    font-weight: 900;
+    font-weight: 700;
     font-size: var(--title); /* ~ 24px */
     margin: 5px 0;
 }

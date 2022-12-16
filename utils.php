@@ -50,6 +50,22 @@ function getData($statement, $getData)
     return $data;
 }
 
+function getAllData($statement, $getData)
+{
+    $result = [];
+    $conn = connectData();
+    $data = "";
+
+    $query = mysqli_query($conn, $statement);
+    
+    while ($row = mysqli_fetch_assoc($query)) {
+        array_push($result,$row);
+    }
+    
+    mysqli_close($conn);
+    return $result;
+}
+
 function selectData($user, $table, $id,)
 {
     $statement = "SELECT * FROM $table WHERE $id = '$user'";
@@ -88,10 +104,10 @@ function register(){
 
 $email = getPOST('email');
 
-$pass = getPOST('pass');
+$pass = getPOST('password');
 $name = getPOST('name');
 $sdt = getPOST('phone');
-
+echo $pass;
 $values = "'$name','$email','$pass','$sdt',0";
 $valuedefault = "'$email'";
 
@@ -118,7 +134,6 @@ function login()
         $statement = "SELECT ten FROM taikhoan WHERE email = '$email'";
         $data =  getData($statement,1);
         $_SESSION['username'] = $data;
-        echo $_SESSION['username'] ;
         header('location: index.php');
         return "";
     }
