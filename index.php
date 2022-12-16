@@ -37,7 +37,7 @@
       <!-- The slideshow -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="./img/banner-1.jpg" alt="Phim Kẻ Độc Hành" width="100%" height="666">
+          <img src="./img/banner-1.jpg" alt="Phim Kẻ Độc Hành"ust width="100%" height="666">
         </div>
         <div class="carousel-item">
           <img src="./img/banner-2.jpg" alt="Phim Avergea" width="100%" height="666">
