@@ -3,7 +3,7 @@ include_once('./utils.php');
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top mg" style="background-color:black;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="./img/logo.png" width="100%" height="72px"></img></a>
+        <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" width="100%" height="72px"></img></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

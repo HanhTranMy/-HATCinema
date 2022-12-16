@@ -1,3 +1,11 @@
+INSERT INTO loaighe(tenLoai,phuThu) VALUES
+
+("Thường",0),
+("Couple",20),
+("VIP",40)
+;
+
+
 INSERT INTO `ghe` (`maGhe`, `tinhtrang`) VALUES
 
 (1, b'0'),

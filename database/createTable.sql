@@ -1,7 +1,15 @@
+CREATE TABLE loaighe (
+	maLoai int(11) AUTO_INCREMENT not null,
+    tenLoai varchar(20),
+    phuThu int(11),
+    PRIMARY KEY (maLoai)
+);
+
 CREATE TABLE ghe (
 	maGhe int(11) AUTO_INCREMENT not null,
     tinhtrang bit(1),
     PRIMARY KEY (maGhe)
+    FOREIGN KEY (maLoai) REFERENCES loaighe(maLoai)
 );
 
 CREATE TABLE phong (

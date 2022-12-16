@@ -28,6 +28,10 @@ body{
     object-fit: cover; 
 } 
 
+.content-promotion img:hover{
+    opacity: 0.6;
+}
+
 .heading-film{
     margin: 0 3px;
 }

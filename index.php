@@ -1,3 +1,16 @@
+<?php
+
+    require_once('./utils.php');
+
+    
+    $statementFilmComing = "SELECT anh,tenPhim,theLoai FROM phim WHERE trangThai = 0 ORDER BY maPhim DESC LIMIT 4";
+    $dataFilmComing = getAllData( $statementFilmComing,1);
+    $statementFilmNow = "SELECT anh,tenPhim,theLoai FROM phim WHERE trangThai = 1 ORDER BY maPhim DESC LIMIT 4";
+    $dataFilmNow = getAllData( $statementFilmNow,1);
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,8 +75,22 @@
             </div>
         </div>
         <div class="row">
-
             
+        <?php  foreach ($dataFilmNow as $value):  ?>
+            
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card">                
+                <img class="card-img-top" src="<?php echo $value['anh'];?>" alt="Card image" width="300px">
+                <div class="card-body">
+                    <a href="#">
+                        <h4 class="card-title overflow-text"><?php echo $value['tenPhim']; ?></h4>
+                        <p class="card-text overflow-text"><?php echo $value['theLoai']; ?></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <?php endforeach;?>
 
         </div>
     </div>
@@ -74,7 +101,7 @@
     <div class="container show-film">
         <div class="row heading-film">
             <div class="col-6">
-                <h3 class="font-weight-700 text-white title-large">ĐANG CHIẾU</h3>
+                <h3 class="font-weight-700 text-white title-large">PHIM ĐANG CHIẾU</h3>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
@@ -82,53 +109,24 @@
         </div>
         <div class="row">
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
+            <?php  foreach ($dataFilmComing as $value):  ?>
+            
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">                
+                    <img class="card-img-top" src="<?php echo $value['anh'];?>" alt="Card image" width="300px">
                     <div class="card-body">
                         <a href="#">
-                            <h4 class="card-title overflow-text">John Doe</h4>
-                            <p class="card-text overflow-text">Some example text.</p>
+                            <h4 class="card-title overflow-text"><?php echo $value['tenPhim']; ?></h4>
+                            <p class="card-text overflow-text"><?php echo $value['theLoai']; ?></p>
                         </a>
                     </div>
                 </div>
             </div>
+            
+            <?php endforeach;?>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                    <div class="card-body">
-                        <a href="#">
-                            <h4 class="card-title overflow-text">John Doe</h4>
-                            <p class="card-text overflow-text">Some example text.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                    <div class="card-body">
-                        <a href="#">
-                            <h4 class="card-title overflow-text">John Doe</h4>
-                            <p class="card-text overflow-text">Some example text.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img-top" src="./img/imgCard.jpg" alt="Card image" width="300px">
-                    <div class="card-body">
-                        <a href="#">
-                            <h4 class="card-title overflow-text">John Doe</h4>
-                            <p class="card-text overflow-text">Some example text.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
     </div>
