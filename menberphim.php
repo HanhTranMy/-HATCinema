@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./css/button2.css">
 
 
-    <title>Admin HAT Cinema</title>
+    <title>Menber-Phim HAT Cinema</title>
 </head>
 
 <body>
@@ -81,7 +81,7 @@
 
                     <div class="col-12 col-md-6 pt-3 col-lg-4 p-0 pr-lg-1 pl-md-2 pl-lg-0">
                         <div class="card" >
-                            <img class="card-img-top" src="./img/1.jpg" alt="Card image" width="300px">
+                            <img class="card-img-top" src="./img/20.jpg" alt="Card image" width="300px">
                             <div class="card-body">
                                 <a href="#">
                                     <h4 class="card-title overflow-text">Name</h4>
