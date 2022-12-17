@@ -40,17 +40,32 @@
 /* header:end */
 
 /* body:start */
-.body{
-	padding: 0 100px 0 100px; 
-	align-items: center;
-	z-index: 1;
-}
-.body > h5{
-	weight:400; 
+.btn{
+	background-color: #C8235D !important;
+	margin-bottom:25px;
 }
 
-.btn{
-	background-color: #8C3CF2 !important;
-	margin-bottom:25px;
+.pages {
+	display: flex !important;
+	justify-content: center;
+	padding-bottom:20px;
+}
+
+.pages a {
+	font-weight:bold !important;
+	font-size:18px !important;
+	color: #C8235D !important;
+	float: left !important;
+	padding: 8px 16px;
+	text-decoration: none;
+	border:1px solid #C8235D;
+}
+
+.pages a.active {
+	background-color: pink;
+}
+
+.pages a:hover:not(.active) {
+	background-color: skyblue;
 }
 /* body:end */

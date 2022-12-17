@@ -3,10 +3,11 @@
     require_once('./utils.php');
 
     
-    $statementPromotion = "SELECT anh,chuDe,noiDung FROM khuyenmai";
+    $statementPromotion = "SELECT maKM,anh,chuDe,noiDung FROM khuyenmai order by maKM DESC LIMIT 4";
     $dataPromotion = getAllData($statementPromotion,1);
     
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,8 @@
 	<link rel="stylesheet" href="./css/nav.css">
 	<link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/button.css">
+
 
 	<title>PROMOTION</title>
 </head>
@@ -50,110 +53,70 @@
 			<!-- header:end -->
 			<!-- body:start -->
 			<div class="body container-fluid ">
+				<?php
+					$connect = connectData();
+					$per_page_record = 12;  // Number of entries to show in a page.
+					// Look for a GET variable page if not found default is 1.
+					if (isset($_GET['page'])) {
+						$page  = $_GET['page'];
+					}
+					else {
+						$page = 1;
+					}
+					$start_from = ($page-1) * $per_page_record;
+					$query = "SELECT * FROM khuyenmai LIMIT $start_from, $per_page_record";
+					$select = getAllData($query,1);
+				?>
 				<div class="h-20">
-					<div class="row">
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-							<br>
-						</div>
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-							<br>
-						</div>
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top img-fluid" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-							<br>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top img-fluid" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-							<br>
-						</div>
-						<div class="col">
-							<div class="card">
-								<img src="./img/promotion.png" class="card-img-top img-fluid" alt="">
-								<div class="card-body">
-									<h4 class="card-title overflow-text">Free popcorn for action movie ticket</h4>
-									<p class="card-text overflow-text">Some example text.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="text-center">
-					<button type="button" class="btn btn-primary btn-lg">Xem thêm</button>
-				</div>
-				<div class="h-20">
-					<div class="row">
-						<?php foreach($dataPromotion as $value): ?>
-							<div class="col">
-								<div class="card">
-									<img src="<?php echo $value['anh'];?>" class="card-img-top img-fluid" alt="">
-									<div class="card-body">
-										<h4 class="card-title overflow-text"><?php echo $value['chuDe'];?></h4>
-										<p class="card-text overflow-text"><?php echo $value['noiDung'];?></p>
+					<?php for($countRow = 0; $countRow < 3; $countRow+=0):?>
+						<?php echo '<div class="row">'?>
+						<?php for($countCol = 0; $countCol < 4; $countCol+=0): ?>
+							<?php foreach($dataPromotion as $value): ?>
+								<div class="col">
+									<div class="card">
+										<img src="./img/<?php echo $value['anh'];?>" class="card-img-top img-fluid" alt="">
+										<div class="card-body">
+											<h4 class="card-title overflow-text"><?php echo $value['chuDe'];?></h4>
+											<p class="card-text overflow-text"><?php echo $value['noiDung'];?></p>
+										</div>
 									</div>
+									<?php if ($countCol == 0) {
+										echo '<br>';
+									}?>
 								</div>
-							</div>
-						<?php endforeach; ?>
-					</div>
+							<?php $countCol++; endforeach; ?>
+						<?php $countRow++; endfor;?>
+						<?php echo '</div>'?>
+					<?php endfor;?>
 				</div>
+			</div>
+			<div class="pages">
+				<?php
+					$query = "SELECT COUNT(*) as count FROM khuyenmai";
+					$select1 = getAllData($query,1);
+					$total_records = $select1[0]['count'];
+					echo '</br>';
+					// Number of pages required.
+					$total_pages = ceil($total_records / $per_page_record);
+					$pagLink = "";
+					if($page>=2){
+						echo "<a href=promotion.php?page=".($page-1)."> Prev </a>";
+					}
+
+					for ($i=1; $i<=$total_pages; $i++) {
+						if ($i == $page) {
+							$pagLink .= "<a class = `active` href=promotion.php?page=".$i.">".$i." </a>";
+						}
+						else  {
+							$pagLink .= "<a href=promotion.php?page=".$i.">".$i." </a>";
+						}
+					};
+					echo $pagLink;
+					if($page<$total_pages){
+						echo "<a href=promotion.php?page=".($page+1)."> Next </a>";
+					}
+				?>
+			</div>
 			</div>
 			<!-- body:end -->
 		</div>
