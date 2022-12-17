@@ -68,6 +68,7 @@
     <div class="container show-film">
         <div class="row heading-film">
             <div class="col-6">
+                <?php echo($dataFilmNow[0]['anh']); ?>
                 <h3 class="font-weight-700 text-white title-large">PHIM SẮP CHIẾU</h3>
             </div>
             <div class="col-6 d-flex justify-content-end">
