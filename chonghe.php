@@ -1,3 +1,7 @@
+<?php
+   $announce = "";
+   require_once('./utils.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -177,53 +181,24 @@
                         <div class="col-12 mb-4">
                             <div class="sub text-white font-weight-800 font-size-20">Mua sản phẩm</div>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card">
-                                <img class="card-img-top" src="./img/imgPromotion.jpg" alt="Card image" width="247"
-                                    height="208">
-                                <div class="card-body">
-                                    <h4 class="card-food-title">Combo BIGMOM</h4>
-                                    <p class="card-food-text">Giá: 120.000vnd</p>
-                                    <a class="btn-promotion" href="#">Xem thêm</a>
+                        <?php
+                            $data = getAllData('SElECT tenSP,gia FROM bapnuoc',1);
+                        
+                            foreach($data as $value){
+                        ?>
+                    
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                    <div class="card">
+                                        <img class="card-img-top" src="./img/img_bapnuoc.jpg" alt="Card image" width="247" height="208">
+                                        <div class="card-body">
+                                            <h4 class="card-food-title"><?php echo $value['tenSP'] ?></h4>
+                                            <p class="card-food-text"><?php echo 'Giá: '.$value['gia'].'.vnd' ?></p>
+                                            <a class="btn-promotion" href="#">Xem thêm</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card">
-                                <img class="card-img-top" src="./img/imgPromotion.jpg" alt="Card image" width="247"
-                                    height="208">
-                                <div class="card-body">
-                                    <h4 class="card-food-title">Combo BIGMOM</h4>
-                                    <p class="card-food-text">Giá: 120.000vnd</p>
-                                    <a class="btn-promotion" href="#">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card">
-                                <img class="card-img-top" src="./img/imgPromotion.jpg" alt="Card image" width="247"
-                                    height="208">
-                                <div class="card-body">
-                                    <h4 class="card-food-title">Combo BIGMOM</h4>
-                                    <p class="card-food-text">Giá: 120.000vnd</p>
-                                    <a class="btn-promotion" href="#">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card">
-                                <img class="card-img-top" src="./img/imgPromotion.jpg" alt="Card image" width="247"
-                                    height="208">
-                                <div class="card-body">
-                                    <h4 class="card-food-title">Combo BIGMOM</h4>
-                                    <p class="card-food-text">Giá: 120.000vnd</p>
-                                    <a class="btn-promotion" href="#">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
+                            
+                        <?php };?>
                     </div>
 
                     <!-- Choose your seat-->
@@ -254,133 +229,24 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        
                         <div class="col-lg-9 col-md-12 mt-4">
                             <div class="row ds-avaiChair">
-                                <div class="col-3">
-
+                            <?php 
+                            $data = getAllData('SElECT maGhe FROM ghe',1);
+                            foreach($data as $value){                            
+                            ?>
+                                <div class="col-2">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-3">
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="ds-boxseat">
-                                                <div class="chair red-chair"></div>
-                                                <div class="chair red-chair"></div>
+                                                <div class="chair red-chair text-white" onClick=handleBuy()><?php echo $value['maGhe'] ?></div>   
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            <?php };?>
                             </div>
                         </div>
                     </div>
