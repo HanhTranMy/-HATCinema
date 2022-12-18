@@ -28,13 +28,12 @@ print_r($dataGetPromotion);
         foreach ($dataGetPromotion as $value) :  ?>
             <tr>
                 <th scope="col"><?php echo $value['maKM']; ?></th>
-                <td><?php echo $value['chuDe']; ?></td>
-                <td><?php echo $value['noiDung']; ?></td>
-                <td><?php echo $value['anh']; ?></td>
-                <td><?php echo $value['ngayBD']; ?></td>
-                <td><?php echo $value['ngayKT']; ?></td>
+                <td contentEditable='true'  class='edit' id="chuDe_khuyenmai_<?php echo $value['maKM']; ?>_maKM"><?php echo $value['chuDe']; ?></td>
+                <td contentEditable='true'  class='edit' id="chuDe_khuyenmai_<?php echo $value['maKM']; ?>_maKM"><?php echo $value['noiDung']; ?></td>
+                <td contentEditable='true'  class='edit' id="chuDe_khuyenmai_<?php echo $value['maKM']; ?>_maKM"><?php echo $value['anh']; ?></td>
+                <td contentEditable='true'  class='edit' id="chuDe_khuyenmai_<?php echo $value['maKM']; ?>_maKM"><?php echo $value['ngayBD']; ?></td>
+                <td contentEditable='true'  class='edit' id="chuDe_khuyenmai_<?php echo $value['maKM']; ?>_maKM"><?php echo $value['ngayKT']; ?></td>
                 <td>
-                    <i class="fas fa-edit" id="<?php $value['maKM'] ?>" data-toggle="modal" data-target="#addDataAdmin"> </i>
                     <i class="fas fa-trash maKM khuyenmai" id="<?php $value['maKM'] ?>"></i>
                 </td>
             </tr>

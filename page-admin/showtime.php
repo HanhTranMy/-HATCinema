@@ -1,11 +1,11 @@
 <?php
 require_once('../utils.php');
 
-$statementGetDrink = "SELECT * FROM bapnuoc";
+$statementGetDrink = "SELECT * FROM xuatchieu";
 $dataGetDrink = getAllData($statementGetDrink, 1); ?>
 
 
-<h2 class="header-admin">QUẢN LÝ BẮP NƯỚC</h2>
+<h2 class="header-admin">QUẢN LÝ XUẤT CHIẾU</h2>
 
 <div class="info d-flex justify-content-end">
     <a class="btn-infomation box-shadow">Thêm thông tin</a>
@@ -15,21 +15,29 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
     <thead class="thead-purple ">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Tên sản phẩm</th>
-            <th scope="col">Giá</th>
+            <th scope="col">Tên Phim</th>
+            <th scope="col">Phòng</th>
+            <th scope="col">Rạp</th>
+            <th scope="col">Thời gian</th>
             <th scope="col"></th>
 
         </tr>
     </thead>
     <tbody>
         <?php
-        foreach ($dataGetDrink as $value) :  ?>
+        foreach ($dataGetDrink as $value) :  
+            $maPhim = $value['maPhim'];
+            $statementGetNameFilm = "SELECT tenphim FROM phim WHERE maPhim = '$maPhim'";
+        $dataFilm = getData($statementGetNameFilm, 1); ?>
             <tr>
-                <th scope="col"><?php echo $value['maBapNuoc']; ?></th>
-                <td contentEditable='true'  class='edit' id="tenSP_bapnuoc_<?php echo $value['maBapNuoc']; ?>_maBapNuoc"><?php echo $value['tenSP']; ?></td>
-                <td contentEditable='true'  class='edit' id="gia_bapnuoc_<?php echo $value['maBapNuoc']; ?>_maBapNuoc"><?php echo $value['gia']; ?></td>
+                <th scope="col"><?php echo $value['maXC']; ?></th>
+                <td contentEditable='true'  class='edit' id="phim_xuatchieu_<?php echo $value['maXC']; ?>_maXC"><?php echo($dataFilm['tenphim']); ?></td>
+                <td contentEditable='true'  class='edit' id="maPhong_xuatchieu_<?php echo $value['maXC']; ?>_maXC"><?php echo $value['maPhong']; ?></td>
+                <td contentEditable='true'  class='edit' id="maRap_xuatchieu_<?php echo $value['maXC']; ?>_maXC"><?php echo $value['maRap']; ?></td>
+                <td contentEditable='true'  class='edit' id="ngayGio_xuatchieu_<?php echo $value['maXC']; ?>_maXC"><?php echo $value['ngaygio']; ?></td>
+
                 <td>
-                    <i class="fas fa-trash maBapNuoc bapnuoc" id="<?php $value['maBapNuoc'] ?>" onclick="deleteData(<?php echo $value['maBapNuoc'] ?>,3)"></i>
+                    <i class="fas fa-trash maXC xuatchieu" id="<?php $value['maXC'] ?>" onclick="deleteData(<?php echo $value['maXC'] ?>,5)"></i>
                 </td>
             </tr>
         <?php endforeach; ?>

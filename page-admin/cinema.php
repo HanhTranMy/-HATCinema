@@ -24,10 +24,9 @@ $dataGetCinema = getAllData($statementGetCinema, 1); ?>
         foreach ($dataGetCinema as $value) :  ?>
             <tr>
                 <th scope="col"><?php echo $value['maRap']; ?></th>
-                <td><?php echo $value['diachi']; ?></td>
+                <td contentEditable='true'  class='edit' id="diachi_rap_<?php echo $value['maRap'] ?>_maRap"><?php echo $value['diachi']; ?></td>
                 <td><?php echo $value['sophong']; ?></td>
                 <td>
-                    <i class="fas fa-edit" id="<?php $value['maRap'] ?>" data-toggle="modal" data-target="#addDataAdmin"></i>
                     <i class="fas fa-trash maRap rap" id="<?php echo $value['maRap'] ?>"></i>
                 </td>
             </tr>

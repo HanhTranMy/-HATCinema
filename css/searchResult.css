@@ -4,14 +4,11 @@
     box-sizing: border-box;
     font-weight: 600;
 }	
-/* nav:end */
 #content {
 	background: linear-gradient(180deg, #151223, #291947);
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	height: auto;
-
 }
-/* header:start */
 .header{
 	font-style: normal;
 	font-size: 40px;
@@ -22,7 +19,6 @@
 	text-align: center;
 
 	z-index: 99;
-	
 }
 .titleLogin{
     line-height: 48.41px; 
@@ -31,13 +27,13 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-.mg-bottom{
-	margin-bottom: 20px;
-}
 .ds-line{
 	align-items: center;
 	display:flex;
 	flex-direction: column;
+}
+.mg-bottom{
+	margin-bottom: 20px;
 }
 .ln-container{
 	width: 100vw;
@@ -48,18 +44,9 @@
 	width: 228px;
 	justify-content: center;
 }
-/* header:end */
-
-/* body:start */
 .img-scale{
 	height: 213px;
 }
-
-.btn{
-	background-color: #C8235D !important;
-	margin-bottom:25px;
-}
-
 .pages {
 	display: flex !important;
 	justify-content: center;
@@ -83,4 +70,3 @@
 .pages a:hover:not(.active) {
 	background-color: skyblue;
 }
-/* body:end */

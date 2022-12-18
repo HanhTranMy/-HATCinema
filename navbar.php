@@ -15,9 +15,9 @@ include_once('./utils.php');
                 <li class="nav-item"><a class="nav-link text-white" href="#">KHUYẾN MÃI</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">THÀNH VIÊN</a></li>
                 <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0 test">
+                    <form class="form-inline my-2 my-lg-0 test" action="searchResult.php" method="post">
                         <img src="./img/ic_search.png" alt="" class="img-search">
-                        <input class="form-control input-search" type="search" aria-label="Search" size=35;>
+                        <input class="form-control input-search" name="search" type="search" aria-label="Search" size=35;>
                     </form>
                 </li>
             </ul>
