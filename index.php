@@ -1,7 +1,6 @@
 <?php
 
     require_once('./utils.php');
-
     
     $statementFilmComing = "SELECT * FROM phim WHERE trangThai = 0 ORDER BY maPhim DESC LIMIT 4";
     $dataFilmComing = getAllData( $statementFilmComing,1);

@@ -12,8 +12,8 @@ include_once('./utils.php');
             <ul class="nav navbar-nav mr-auto heading">
                 <li class="nav-item active"><a class="nav-link text-white" href="#">MUA VÉ</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">RẠP PHIM</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">KHUYẾN MÃI</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">THÀNH VIÊN</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="./promotion.php">KHUYẾN MÃI</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="./menberphim.php">THÀNH VIÊN</a></li>
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0 test" action="searchResult.php" method="post">
                         <img src="./img/ic_search.png" alt="" class="img-search">
