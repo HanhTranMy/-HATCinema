@@ -2,10 +2,6 @@
 $announce = "";
 require_once('./utils.php');
 
-
-
-
-
 ?>
 
 
@@ -17,7 +13,7 @@ require_once('./utils.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/nav.css">
@@ -88,103 +84,112 @@ require_once('./utils.php');
                             <div>
                                 <div class="ds-form">
                                     <div class="card">
-                                            <?php
-                                            $maghe = $_GET['id'];
-                                            $xc = $_GET['xc'];
-                                            $bn = isset( $_GET['bn']) ? $_GET['bn'] : 0;
+                                        <?php
 
-                                            $statement = "SELECT * FROM xuatchieu WHERE maXC= '$xc' ";
+                                        $maghe = $_GET['id'];
+                                        $xc = $_GET['xc'];
 
+                                        if (isset($_GET['bn'])) {
+                                            $bn = $_GET['bn'];
                                             $statement1 = "SELECT gia FROM bapnuoc WHERE maBapNuoc= '$bn' ";
 
                                             $bapnuoc = getData($statement1, 1);
+
                                             $priceBN = $bapnuoc['gia'];
-                                            $data = getAllData($statement, 1);
+                                        } else {
+                                            $bn = 0;
+                                            $priceBN = 0;
+                                        }
+                                        $statement = "SELECT * FROM xuatchieu WHERE maXC= '$xc' ";
 
-                    
-                     
 
-                                            foreach ($data as $value) :
-                                                $maPhim = $value['maPhim'];
-                                                $idFilm = getData("SELECT tenPhim, anh, gia,theLoai FROM phim WHERE  maPhim = $maPhim ", 1);
-                                                $name = $idFilm['tenPhim'];
-                                                $image = $idFilm['anh'];
-                                                $theloai = $idFilm['theLoai'];
-                                                $priceFilm = $idFilm['gia'];
 
-                                                $total = $priceBN + $priceFilm;
+                                        $data = getAllData($statement, 1);
 
-                                                $gioChieu = $value['giochieu'];
-                                                $maphong = $value['maPhong'];
 
-                                                $maRap = $value['maRap'];
-                                                $idMaRap = getData("SELECT diachi FROM rap WHERE  maRap = $maRap ", 1);
-                                                $diachi = $idMaRap['diachi'];
 
-                                                $code = $value['maXC'];
-                                                
 
-                                            ?>
-                                        <img class="card-img-top" src="<?php echo $image ?>" alt="Card image" width="300px">
-                                        <div class="card-body">
-                                            <table class="table table-borderless table-ticket">
-                                                <thead>
-                                                    <tr>
-                                                        <th colspan="3" style="padding: 0 10px 10px 10px;">
-                                                            <h4 class="card-ticket-title"><?php echo $name ?></h4>
-                                                            <p class="card-ticket-subtitle purple-12"><?php echo $theloai ?></p>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="purple-12">
-                                                        <td>Ngày</td>
-                                                        <td>Giờ</td>
-                                                        <td>Loại</td>
-                                                    </tr>
-                                                    <tr class="card-ticket-text">
-                                                        <td>24/11</td>
-                                                        <td><?php  echo $gioChieu  ?></td>
-                                                        <td>3D</td>
-                                                    </tr>
-                                                    <tr class="purple-12">
-                                                        <td>Rạp</td>
-                                                        <td>Hàng</td>
-                                                        <td>Ghế</td>
-                                                    </tr>
-                                                    <tr class="card-ticket-text">
-                                                        <td><?php echo $maphong ?></td>
-                                                        <td>D</td>
-                                                        <td>6</td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <h4 class="purple-12" style="margin: 0; margin-top: 16px;">HAT Cinema</h4>
-                                                            <p class="card-ticket-text "><?php echo $diachi ?></p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <h4 class="purple-12" style="margin: 0; margin-top: 16px;">Tổng tiền</h4>
-                                                            <p class="card-ticket-text "><?php echo" $total.vnd";?></p>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                            <div class="qr-code">
-                                                <div class="text-code">
-                                                    <p class="purple-12" style="margin: 0; margin-top: 16px;">Mã code</p>
-                                                    <p class="card-ticket-text"><?php echo "123456789210" + $code ?></p>
+                                        foreach ($data as $value) :
+                                            $maPhim = $value['maPhim'];
+                                            $idFilm = getData("SELECT tenPhim, anh, gia,theLoai FROM phim WHERE  maPhim = $maPhim ", 1);
+                                            $name = $idFilm['tenPhim'];
+                                            $image = $idFilm['anh'];
+                                            $theloai = $idFilm['theLoai'];
+                                            $priceFilm = $idFilm['gia'];
+
+                                            $total = $priceBN + $priceFilm;
+
+                                            $gioChieu = $value['giochieu'];
+                                            $maphong = $value['maPhong'];
+
+                                            $maRap = $value['maRap'];
+                                            $idMaRap = getData("SELECT diachi FROM rap WHERE  maRap = $maRap ", 1);
+                                            $diachi = $idMaRap['diachi'];
+
+                                            $code = $value['maXC'];
+
+
+                                        ?>
+                                            <img class="card-img-top" src="<?php echo $image ?>" alt="Card image" width="300px">
+                                            <div class="card-body">
+                                                <table class="table table-borderless table-ticket">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="3" style="padding: 0 10px 10px 10px;">
+                                                                <h4 class="card-ticket-title"><?php echo $name ?></h4>
+                                                                <p class="card-ticket-subtitle purple-12"><?php echo $theloai ?></p>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="purple-12">
+                                                            <td>Ngày</td>
+                                                            <td>Giờ</td>
+                                                            <td>Loại</td>
+                                                        </tr>
+                                                        <tr class="card-ticket-text">
+                                                            <td>24/11</td>
+                                                            <td><?php echo $gioChieu  ?></td>
+                                                            <td>3D</td>
+                                                        </tr>
+                                                        <tr class="purple-12">
+                                                            <td>Rạp</td>
+                                                            <td>Hàng</td>
+                                                            <td>Ghế</td>
+                                                        </tr>
+                                                        <tr class="card-ticket-text">
+                                                            <td><?php echo $maphong ?></td>
+                                                            <td>D</td>
+                                                            <td class="getId" id="<?php echo $maghe  ?>"><?php echo $xc  ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="3">
+                                                                <h4 class="purple-12" style="margin: 0; margin-top: 16px;">HAT Cinema</h4>
+                                                                <p class="card-ticket-text "><?php echo $diachi ?></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3">
+                                                                <h4 class="purple-12" style="margin: 0; margin-top: 16px;">Tổng tiền</h4>
+                                                                <p class="card-ticket-text"><?php echo " $total.vnd"; ?></p>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                                <div class="qr-code">
+                                                    <div class="text-code">
+                                                        <p class="purple-12" style="margin: 0; margin-top: 16px;">Mã code</p>
+                                                        <p class="card-ticket-text"><?php echo "123456789210" + $code ?></p>
+                                                    </div>
+
+                                                    <img src="./img/QR Code.png" alt="Qr code ticket">
                                                 </div>
-                                               
-                                                <img src="./img/QR Code.png" alt="Qr code ticket">
                                             </div>
-                                        </div>
-                                        <img class="line" src="./img/line10.png" alt="Line">
+                                            <img class="line" src="./img/line10.png" alt="Line">
                                     </div>
-                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
@@ -300,4 +305,5 @@ require_once('./utils.php');
         </div>
 
     </div>
+
 </body>

@@ -1,5 +1,4 @@
 <?php
-
     require_once('./utils.php');
 ?>
 
@@ -23,33 +22,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<!-- link css -->
-	<link rel="stylesheet" href="./css/promotion_style.css">
+	<link rel="stylesheet" href="./css/searchResult.css">
 	<link rel="stylesheet" href="./css/nav.css">
 	<link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="./css/card.css">
 
 
-	<title>PROMOTION</title>
+	<title>Upcoming Movies</title>
 </head>
 <body>
-	<div id="pr">
+	<div id="uM">
 		<div class="heading">
             <!-- Navbar -->
             <?php include_once('./navbar.php') ?>
         </div>
-			<!--Content  -->
 		<div id="content">
 			<!-- header:start -->
 			<div class="ds-line">
-				<h1 class="titleLogin font-weight-70 header">Khuyễn mãi</h1>
+				<h1 class="titleLogin font-weight-70 header">Phim sắp chiếu</h1>
 				<div class="ln-contain mg-bottom">
 					<hr class ="ln mg-bottom">
 				</div>
 			</div>
 			<!-- header:end -->
-			<!-- body:start -->
 			<div class="body container-fluid ">
+				<!-- content: start -->
 				<?php
 					$connect = connectData();
 					$per_page_record = 12;  // Number of entries to show in a page.
@@ -62,7 +61,7 @@
 					}
 					$start_from = ($page-1) * $per_page_record;
 					$maxPage = $per_page_record + $start_from;
-					$query = "SELECT anh,chuDe,noiDung FROM khuyenmai LIMIT $start_from, $maxPage";
+					$query = "SELECT maPhim,anh,tenPhim,theLoai FROM phim where trangThai = 0 LIMIT $start_from, $maxPage";
 					$select = getAllData($query,1);
 					$countCol = 0;
 				?>
@@ -71,12 +70,14 @@
 						<?php if($countCol == 0){
 							echo '<div class="row">';
 						}?>
-						<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="card">
-								<img src="<?php echo $value['anh'];?>" class="card-img-top img-scale" alt="">
+						<div class="col-12 col-sm-6 col-md-4 col-lg-3" >
+							<div class="card" id="<?php echo $value['maPhim']?>">
+								<img src="<?php echo $value['anh'];?>" class="card-img-top img-scale" alt="Card image">
 								<div class="card-body">
-									<h4 class="card-title overflow-text"><?php echo $value['chuDe'];?></h4>
-									<p class="card-text overflow-text"><?php echo $value['noiDung'];?></p>
+									<a href="#">
+										<h4 class="card-title overflow-text"><?php echo $value['tenPhim'];?></h4>
+										<p class="card-text overflow-text"><?php echo $value['theLoai'];?></p>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -96,7 +97,7 @@
 			</div>
 			<div class="pages">
 				<?php
-					$query = "SELECT COUNT(*) as count FROM khuyenmai";
+					$query = "SELECT COUNT(*) as count FROM phim where trangThai = 0";
 					$select1 = getAllData($query,1);
 					$total_records = $select1[0]['count'];
 					echo '</br>';
@@ -104,28 +105,25 @@
 					$total_pages = ceil($total_records / $per_page_record);
 					$pagLink = "";
 					if($page>=2){
-						echo "<a href=promotion.php?page=".($page-1)."> Prev </a>";
+						echo "<a href=upComing.php?page=".($page-1)."> Prev </a>";
 					}
 
 					for ($i=1; $i<=$total_pages; $i++) {
 						if ($i == $page) {
-							$pagLink .= "<a class = `active` href=promotion.php?page=".$i.">".$i." </a>";
+							$pagLink .= "<a class = `active` href=upComing.php?page=".$i.">".$i." </a>";
 						}
 						else  {
-							$pagLink .= "<a href=promotion.php?page=".$i.">".$i." </a>";
+							$pagLink .= "<a href=upComing.php?page=".$i.">".$i." </a>";
 						}
 					};
 					echo $pagLink;
 					if($page<$total_pages){
-						echo "<a href=promotion.php?page=".($page+1)."> Next </a>";
+						echo "<a href=upComing.php?page=".($page+1)."> Next </a>";
 					}
-				?>
+					?>
 			</div>
-			</div>
-			<!-- body:end -->
-		</div>
-			<!-- footer of page -->
 		<?php include_once('./footer.php') ?>
-	</div>
-</body>
-</html>
+		<script src="./js/handleGoToDetail.js"></script>
+		</div>
+		</body>
+		</html>

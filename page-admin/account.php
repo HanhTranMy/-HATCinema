@@ -68,22 +68,7 @@ $dataGetAccount = getAllData($statementGetAccount, 1); ?>
                         </div>
                         <div class="modal-body">
                             <form method="post" action="">
-                                <div class="form-group">
-                                    <label for="tenNguoiDung" class="col-form-label">Tên người dung</label>
-                                    <input name="tenNguoiDung" id="tenNguoiDung" class="form-control" type="text" placeholder="Tên người dùng">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" class="col-form-label">Email</label>
-                                    <input name="email" id="email" class="form-control" type="email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="soDienThoai" class="col-form-label">Số điện thoại</label>
-                                    <input name="soDienThoai" id="soDienThoai" class="form-control" type="text" placeholder="Diễn viên">
-                                </div>
-                                <div class="form-group">
-                                    <label for="maKM" class="col-form-label">Thể Loại</label>
-                                    <input name="maKM" id="maKM" class="form-control" type="text" placeholder="Thể Loại">
-                                </div>
+            
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

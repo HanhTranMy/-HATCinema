@@ -331,6 +331,7 @@ require_once('./utils.php');
             let text = "Bạn đồng ý mua sản phẩm này không!";
             if (confirm(text) == true) {
                 bapnuoc = $(this).attr("id");
+               
             }
         });
 
@@ -338,7 +339,6 @@ require_once('./utils.php');
         $(".red-chair").click(function() {
             let text = "Bạn đồng ý mua vé ghế này chứ!";
             if (confirm(text) == true) {
-                bapnuoc = $(this).attr("id");
                 var xc = $(".img-holder").attr("id");
 
                 var maghe = $(this).attr("id");
@@ -346,9 +346,9 @@ require_once('./utils.php');
                     var url = "booking.php" + "?id=" + maghe + "&xc=" + xc;
                 } else {
                     var url = "booking.php" + "?id=" + maghe + "&xc=" + xc + "&bn=" + bapnuoc;
-
+                }
                 window.location.href = url;
             }
-        }});
+        });
     </script>
 </body>
