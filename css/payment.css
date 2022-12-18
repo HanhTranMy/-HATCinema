@@ -72,9 +72,9 @@ input::placeholder {
 
 .apply_coupon_button {
   background: rgb(200, 35, 93);
-  /* height: 49px; */
-  /* width: 379px; */
-  /* border-radius: 25px; */
+  height: 49px;
+  width: 379px;
+  border-radius: 25px;
 }
 
 .section {
