@@ -59,8 +59,8 @@
 					}
 					$start_from = ($page-1) * $per_page_record;
 					$maxPage = $per_page_record + $start_from;
-					$sV = getPOST('search');
-					$query = "SELECT maPhim,anh,tenPhim,theLoai FROM phim where tenPhim Like '%$sV%' LIMIT $start_from, $maxPage";
+					$sV = strtolower(getPOST('search'));
+					$query = "SELECT maPhim,anh,tenPhim,theLoai FROM phim where lower(tenPhim) Like '%$sV%' LIMIT $start_from, $maxPage";
 					$select = getAllData($query,1);
 					$countCol = 0;
 				?>
