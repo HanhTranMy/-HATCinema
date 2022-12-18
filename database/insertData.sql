@@ -93,3 +93,29 @@ INSERT INTO phim(ngayBD,ngayKT,gia,quocGia,tenPhim,theLoai,thoiLuong) VALUES
 ("2022-12-06","2022-12-31",75000,"Hồng Kông","Series IP Man 4", "Võ thuật", 120)
 
 ;
+
+INSERT INTO `hoadon` (`maHD`, `ngayDat`, `email`, `tongTien`, `maKM`) VALUES
+(1, '2022-12-17', 'admin@gmail.com', 150, 1),
+(4, '2022-12-02', 'user1@gmail.com', 123, 1),
+(6, '2022-12-17', 'user1@gmail.com', 123, 1),
+(10, '2022-12-16', 'user1@gmail.com', 140, 1);
+
+INSERT INTO `chitiethoadon` (`maHD`, `soluongXC`, `maXC`, `maBapNuoc`, `soluongBapNuoc`) VALUES
+(1, 1, 1, 1, 1),
+(6, 1, 3, 1, 2);
+
+INSERT INTO `khuyenmai` (`maKM`, `chuDe`, `noiDung`, `anh`, `ngayBD`, `ngayKT`) VALUES
+(1, 'Giảm 50k', 'Giảm 50k cho hóa đơn trên 200k', NULL, '2022-12-15', '2022-12-31'),
+(2, 'Giảm 100k', 'Giảm 100k với hóa đơn trên 1000k', NULL, '2022-12-22', '2022-12-29'),
+(3, 'Giảm 2k', 'Giảm 2k khách mới', NULL, '2022-12-14', '2022-12-14');
+
+INSERT INTO `taikhoan` (`email`, `matKhau`, `ten`, `admin`, `sdt`) VALUES
+('admin@gmail.com', '1234', 'hanh', b'1', '0878053999'),
+('user1@gmail.com', '1234', 'user1', b'0', NULL);
+
+INSERT INTO `xuatchieu` (`maXC`, `ngaygio`, `maPhong`, `maPhim`, `maRap`) VALUES
+(1, '2022-12-17', 2, 2, 1),
+(3, '2022-12-17', 2, 12, 1),
+(4, '2022-12-02', 2, 5, 2);
+
+

@@ -69,3 +69,17 @@
 #annouce{
     color: tomato;
 }
+
+.body-content-member{
+
+  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.thead-purple{
+
+  background: linear-gradient(180deg, #411778 21.55%, #722bce 75.31%);
+  color: #fff;
+}
