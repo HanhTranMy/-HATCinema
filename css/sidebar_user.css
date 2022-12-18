@@ -7,11 +7,31 @@
 .content{
     width: 308px;
     height: 623px;
-    background: #8C3CF2 18%;
+    background: #301158 18%;
     border: 1px solid #131212;
     border-radius: 20px;
     font-size: 18px;
 }
+.ads{
+    width: 308px;
+    background: #301158 18%;
+    border: 1px solid #131212;
+    border-radius: 20px;
+    font-size: 18px;
+    
+}   
+.textads{
+    color: #ffffff ;
+    margin-left:20%
+}
+.imgads {
+
+    margin-right:20%;
+
+    margin-left:20%;
+
+}
+
 
 .button-css{
     width: 285px;
@@ -56,6 +76,10 @@
 }
 
 .row{
+    margin: 40px -5px;
+}
+
+.row-2{
     margin: 40px -5px;
 }
 

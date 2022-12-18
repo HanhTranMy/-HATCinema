@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-
+ $_SESSION['test'] = "Test Sesion";
 function getPOST($key)
 {
 

@@ -39,7 +39,11 @@
             <div class="ket_noi_voi_chung_toi info_child">
                 <div class="row">
                     <div class="col-md-12 offset-md-2">KẾT NỐI VỚI CHÚNG TÔI</div>
-                    <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2"></div>
+                    <div class="col-md-8 offset-md-2 text-muted font-weight-light mt-2">
+                        <img src="./img/icon_facebook.png">
+                        <img src="./img/icon_youtube.png">
+                        <img src="./img/icon_instagram.png">
+                    </div>
                 </div>
             </div>
         </div>

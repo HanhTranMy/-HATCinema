@@ -1,3 +1,11 @@
+<?php require('./conn/conn.php')?>
+<?php $sql = "SELECT * FROM premiere";
+    $sql1 = "SELECT * FROM movie_theater";
+     $result = $conn->query($sql);
+     $result1 = $conn->query($sql1);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +40,7 @@
 
 <body>
 
-    <?php include_once('./navbar.php') ?>
+    <?php /*include_once('./navbar.php') */ ?>
 
 
     <!-- Start a carousel -->
@@ -86,57 +94,20 @@
     </div>
     <div class="wrap-time">
         <div class="container">
-            <div class="title-time text-center text-white">
+            <!-- <div class="title-time text-center text-white">
                 <span>Thứ 2,01/09/2022</span>
-            </div>
+            </div> -->
             <div class="text-time">
                 <span>Thời gian</span>
             </div>
             <div class="gr-time d-flex justify-content align-items-center flex-wrap">
-                <div class="time-item active">
-                    <span class="day">Thứ 2</span>
-                    <p class="mb-0 time">1-9</p>
+
+            <?php foreach ($result as $k => $v) {?>
+                <div class="time-item <?=($k==0)?"active":""?>">
+                    <span class="day"><?= date_format(date_create($v['day']),"D");?></span>
+                    <p class="mb-0 time"><?= date_format(date_create($v['day']),"d-m");?></p>
                 </div>
-                <div class="time-item">
-                    <span class="day">Thứ 3</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 4</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 5</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 6</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 7</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">CN</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 2</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 3</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 4</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
-                <div class="time-item">
-                    <span class="day">Thứ 5</span>
-                    <p class="mb-0 time">1-9</p>
-                </div>
+                <?php }?>
             </div>
         </div>
     </div>
@@ -148,20 +119,25 @@
             </div>
         </div>
         <div class="line1"></div>
-        <div class="container">
+
+        <?php foreach ($result1 as $k => $v) {
+            $result2 = $conn->query("SELECT * FROM chair where id_movie_theater =".$v["id"]);
+            
+            ?>
+            <div class="container">
             <div class="form-row  pt-5 pb-5">
                 <div class="col-md-6">
                     <div class="d-flex align-items-center justify-content-center">
                         <div class="item-left">
-                            <img src="./img/Logo-text.png" alt="">
+                            <img src="<?=$v['photo']?>" width="100px" alt="">
                             <div class="btn-offer"><a href="">Tìm vị trí</a></div>
                         </div>
                         <div class="item-right">
                             <span class="offer-name">
-                                HAT Cinema Phú Mỹ Hưng
+                                <?=$v['name']?>
                             </span>
                             <p class="offer-desc mb-0">
-                            Tầng 5| Crescent Mall , Tân Phú,Quận 7, TP Hồ Chí Minh
+                                <?=$v['address']?>
                             </p>
                         </div>
                     </div>
@@ -169,98 +145,19 @@
                 <div class="col-md-6">
                     <div class="tit-offer">2D Phụ đề</div>
                     <div class="gr-offer d-flex justify-content-start aling-items-center">
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
+                        <?php foreach ($result2 as $k2 => $v2) {?>
+                            <div class="item-offer">
+                                <span class="offer-time"><?=$v2['time']?></span>
+                                <p class="offer-time mb-0"><?=$v2['r_amount']?>/<?=$v2['amount']?> Ghế</p>
+                            </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>
         </div>
         <div class="line1"></div>
-        <div class="container">
-            <div class="form-row  pt-5 pb-5">
-                <div class="col-md-6">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <div class="item-left">
-                            <img src="./img/Logo-text.png" alt="">
-                            <div class="btn-offer"><a href="">Tìm vị trí</a></div>
-                        </div>
-                        <div class="item-right">
-                            <span class="offer-name">
-                                HAT Cinema Phú Mỹ Hưng
-                            </span>
-                            <p class="offer-desc mb-0">
-                            Tầng 5| Crescent Mall , Tân Phú,Quận 7, TP Hồ Chí Minh
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="tit-offer">2D Phụ đề</div>
-                    <div class="gr-offer d-flex justify-content-start aling-items-center">
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="line1"></div>
-        <div class="container">
-            <div class="form-row  pt-5 pb-5">
-                <div class="col-md-6">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <div class="item-left">
-                            <img src="./img/Logo-text.png" alt="">
-                            <div class="btn-offer"><a href="">Tìm vị trí</a></div>
-                        </div>
-                        <div class="item-right">
-                            <span class="offer-name">
-                                HAT Cinema Phú Mỹ Hưng
-                            </span>
-                            <p class="offer-desc mb-0">
-                            Tầng 5| Crescent Mall , Tân Phú,Quận 7, TP Hồ Chí Minh
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="tit-offer">2D Phụ đề</div>
-                    <div class="gr-offer d-flex justify-content-start aling-items-center">
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                        <div class="item-offer">
-                            <span class="offer-time">9:30</span>
-                            <p class="offer-time mb-0">40/80 Ghế</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <?php } ?>
+       
    
    
     </div>
