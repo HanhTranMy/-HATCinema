@@ -1,5 +1,17 @@
+<?php
+$announce = "";
+require_once('./utils.php');
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,24 +25,25 @@
     <link rel="stylesheet" href="./css/button.css">
     <link rel="stylesheet" href="./css/booking.css">
     <link rel="stylesheet" href="./css/general.css">
-	<!-- link font -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- link font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <title>Booking</title>
 
 </head>
+
 <body>
     <div id="main">
         <div class="heading">
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-dark fixed-top mg" style="background-color:black;">  
-                <div class="container-fluid">   
-                    <a class="navbar-brand" href="#"><img src="./img/logo.png" width="100%" height="72px"></img></a>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top mg" style="background-color:black;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="./index.php"><img src="./img/logo.png" width="100%" height="72px"></img></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-        
+
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav mr-auto heading">
                             <li class="nav-item active"><a class="nav-link text-white" href="#">MUA VÉ</a></li>
@@ -40,17 +53,17 @@
                             <li class="nav-item">
                                 <form class="form-inline my-2 my-lg-0 test">
                                     <img src="./img/ic_search.png" alt="" class="img-search">
-                                    <input class="form-control input-search" type="search" aria-label="Search" size = 35;>
+                                    <input class="form-control input-search" type="search" aria-label="Search" size=35;>
                                 </form>
                             </li>
                         </ul>
-        
+
                         <ul class="nav navbar-nav mr-5 heading">
-                            <li class="nav-item"><a class="nav-link text-white" href="#">Login/Đăng ký <span> <img src="./img/ic_user.png" alt="" class ="img-user"> </span></a></li>
-                        </ul>  
-           
-                    </div>   
-        
+                            <li class="nav-item"><a class="nav-link text-white" href="#">Login/Đăng ký <span> <img src="./img/ic_user.png" alt="" class="img-user"> </span></a></li>
+                        </ul>
+
+                    </div>
+
                 </div>
             </nav>
         </div>
@@ -63,10 +76,10 @@
                     <a href="#" class="btn btn-chonghe">Chọn ghế</a>
                     <a href="#" class="btn btn-chondoan">Chọn đồ ăn</a>
                     <a href="#" class="btn btn-chonthanhtoan">Thanh toán</a>
-                    <a href="#" class="btn btn-datvethanhcong">Đặt vé thành công</a>    
+                    <a href="#" class="btn btn-datvethanhcong">Đặt vé thành công</a>
                 </div>
             </div>
-            
+
             <!-- card-flim -->
             <div class="container-fluid">
                 <div class="row">
@@ -75,18 +88,55 @@
                             <div>
                                 <div class="ds-form">
                                     <div class="card">
-                                        <img class="card-img-top" src="./img/imgTicket.jpg" alt="Card image" width="300px">
+                                            <?php
+                                            $maghe = $_GET['id'];
+                                            $xc = $_GET['xc'];
+                                            $bn = isset( $_GET['bn']) ? $_GET['bn'] : 0;
+
+                                            $statement = "SELECT * FROM xuatchieu WHERE maXC= '$xc' ";
+
+                                            $statement1 = "SELECT gia FROM bapnuoc WHERE maBapNuoc= '$bn' ";
+
+                                            $bapnuoc = getData($statement1, 1);
+                                            $priceBN = $bapnuoc['gia'];
+                                            $data = getAllData($statement, 1);
+
+                    
+                     
+
+                                            foreach ($data as $value) :
+                                                $maPhim = $value['maPhim'];
+                                                $idFilm = getData("SELECT tenPhim, anh, gia,theLoai FROM phim WHERE  maPhim = $maPhim ", 1);
+                                                $name = $idFilm['tenPhim'];
+                                                $image = $idFilm['anh'];
+                                                $theloai = $idFilm['theLoai'];
+                                                $priceFilm = $idFilm['gia'];
+
+                                                $total = $priceBN + $priceFilm;
+
+                                                $gioChieu = $value['giochieu'];
+                                                $maphong = $value['maPhong'];
+
+                                                $maRap = $value['maRap'];
+                                                $idMaRap = getData("SELECT diachi FROM rap WHERE  maRap = $maRap ", 1);
+                                                $diachi = $idMaRap['diachi'];
+
+                                                $code = $value['maXC'];
+                                                
+
+                                            ?>
+                                        <img class="card-img-top" src="<?php echo $image ?>" alt="Card image" width="300px">
                                         <div class="card-body">
-                                            <table class="table table-borderless table-ticket" >
+                                            <table class="table table-borderless table-ticket">
                                                 <thead>
                                                     <tr>
                                                         <th colspan="3" style="padding: 0 10px 10px 10px;">
-                                                        <h4 class="card-ticket-title">PANTERA NEGRA: WAKANDA PARA SEMPRE</h4>
-                                                        <p class="card-ticket-subtitle purple-12">Ryan Coogler</p>
+                                                            <h4 class="card-ticket-title"><?php echo $name ?></h4>
+                                                            <p class="card-ticket-subtitle purple-12"><?php echo $theloai ?></p>
                                                         </th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>        
+                                                <tbody>
                                                     <tr class="purple-12">
                                                         <td>Ngày</td>
                                                         <td>Giờ</td>
@@ -94,7 +144,7 @@
                                                     </tr>
                                                     <tr class="card-ticket-text">
                                                         <td>24/11</td>
-                                                        <td>20h00</td>
+                                                        <td><?php  echo $gioChieu  ?></td>
                                                         <td>3D</td>
                                                     </tr>
                                                     <tr class="purple-12">
@@ -103,7 +153,7 @@
                                                         <td>Ghế</td>
                                                     </tr>
                                                     <tr class="card-ticket-text">
-                                                        <td>3</td>
+                                                        <td><?php echo $maphong ?></td>
                                                         <td>D</td>
                                                         <td>6</td>
                                                     </tr>
@@ -111,22 +161,30 @@
                                                 <tfoot>
                                                     <tr>
                                                         <td colspan="3">
-                                                            <h4 class="purple-12" style="margin: 0; margin-top: 16px;">HAT  Cinema</h4>
-                                                            <p class="card-ticket-text ">Hai Bà Trưng</p>
+                                                            <h4 class="purple-12" style="margin: 0; margin-top: 16px;">HAT Cinema</h4>
+                                                            <p class="card-ticket-text "><?php echo $diachi ?></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <h4 class="purple-12" style="margin: 0; margin-top: 16px;">Tổng tiền</h4>
+                                                            <p class="card-ticket-text "><?php echo" $total.vnd";?></p>
                                                         </td>
                                                     </tr>
                                                 </tfoot>
                                             </table>
-                                        <div class="qr-code">
-                                            <div class="text-code">
-                                                <p class="purple-12" style="margin: 0; margin-top: 16px;">Mã code</p>
-                                                <p class="card-ticket-text" style="color:#fff">166937</p>
+                                            <div class="qr-code">
+                                                <div class="text-code">
+                                                    <p class="purple-12" style="margin: 0; margin-top: 16px;">Mã code</p>
+                                                    <p class="card-ticket-text"><?php echo "123456789210" + $code ?></p>
+                                                </div>
+                                               
+                                                <img src="./img/QR Code.png" alt="Qr code ticket">
                                             </div>
-                                            <img src="./img/QR Code.png" alt="Qr code ticket">
-                                        </div>
                                         </div>
                                         <img class="line" src="./img/line10.png" alt="Line">
                                     </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
@@ -148,11 +206,11 @@
                                     <img src="./img/ic_datvethanhcong.png" alt="" class="img-fluid mb-4">
                                     <div class="ds-line mb-4">
                                         <h1 class="titleDatVe ">ĐẶT VÉ THÀNH CÔNG</h1>
-                                        <hr class ="hr">
+                                        <hr class="hr">
                                     </div>
                                     <p class=" mb-4 font-weight-300 text-white" style="height: 29px;">Bạn đặt vé thành công. Khi bạn đến rạp vui lòng trình vé cho nhân viên tại quầy vé</p>
                                     <p class=" mb-4 font-weight-300 text-white" style="height: 29px;">Chúc bạn có buổi xem phim vui vẻ </p>
-                                    <h2 class ="titleThanks fontSize-24   ">HAT Cinema xin chân thành cảm ơn</h2>
+                                    <h2 class="titleThanks fontSize-24   ">HAT Cinema xin chân thành cảm ơn</h2>
 
                                     <div class="cssFvFilm">
                                         <div class="container">
@@ -160,42 +218,42 @@
                                                 <div class="col-md-12 text-white">
                                                     <p class="m-auto">Phim yêu thích</p>
                                                 </div>
-    
+
                                                 <div class="ds-fvfilm">
-                                                    <img src="./img/4.jpg" alt="" class ="img-fluid img-film">
+                                                    <img src="./img/4.jpg" alt="" class="img-fluid img-film">
                                                 </div>
-    
+
                                                 <div class="ds-fvfilm">
-                                                    <img src="./img/1.jpg" alt="" class ="img-fluid img-film">
+                                                    <img src="./img/1.jpg" alt="" class="img-fluid img-film">
                                                 </div>
-    
+
                                                 <div class="ds-fvfilm">
-                                                    <img src="./img/2.jpg" alt="" class ="img-fluid img-film">
+                                                    <img src="./img/2.jpg" alt="" class="img-fluid img-film">
                                                 </div>
-    
+
                                                 <div class="ds-fvfilm">
-                                                    <img src="./img/3.jpg" alt="" class ="img-fluid img-film">
+                                                    <img src="./img/3.jpg" alt="" class="img-fluid img-film">
                                                 </div>
-    
+
                                                 <div class="ds-fvfilm">
-                                                    <img src="./img/5.jpg" alt="" class ="img-fluid img-film">
+                                                    <img src="./img/5.jpg" alt="" class="img-fluid img-film">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-    
+
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
-                
+
                 </div>
             </div>
 
         </div>
 
-         <!-- Footer of page -->
-         <div class="footer">
+        <!-- Footer of page -->
+        <div class="footer">
             <div class="logo">
                 <img src="./img/logo.png" alt="HAT cinema logo">
             </div>
