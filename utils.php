@@ -15,7 +15,7 @@ function getPOST($key)
 
 function connectData()
 {
-    $conn = mysqli_connect("localhost", "root", "", "xemphimthat");
+    $conn = mysqli_connect("localhost", "root", "", "xemphimhat");
     mysqli_set_charset($conn, 'utf8');
     return $conn;
 }
