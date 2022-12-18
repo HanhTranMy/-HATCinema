@@ -33,7 +33,7 @@ require_once('./utils.php');
 
 <body>
 
-    <?php include_once('./navbar.php') ?>
+    <?php /*include_once('./navbar.php') */ ?>
 
 
     <!-- Start a carousel -->
@@ -87,9 +87,9 @@ require_once('./utils.php');
     </div>
     <div class="wrap-time">
         <div class="container">
-            <div class="title-time text-center text-white">
+            <!-- <div class="title-time text-center text-white">
                 <span>Thứ 2,01/09/2022</span>
-            </div>
+            </div> -->
             <div class="text-time">
                 <span>Thời gian</span>
             </div>

@@ -24,17 +24,48 @@ $dataGetCinema = getAllData($statementGetCinema, 1); ?>
         foreach ($dataGetCinema as $value) :  ?>
             <tr>
                 <th scope="col"><?php echo $value['maRap']; ?></th>
-                <td><?php echo $value['diachi']; ?></td>
+                <td contentEditable='true'  class='edit' id="diachi_rap_<?php echo $value['maRap'] ?>_maRap"><?php echo $value['diachi']; ?></td>
                 <td><?php echo $value['sophong']; ?></td>
                 <td>
-                    <i class="fas fa-edit" id="<?php $value['maRap'] ?>"></i>
-                    <i class="fas fa-trash" id="<?php $value['maRap'] ?>"></i>
+                    <i class="fas fa-trash maRap rap" id="<?php echo $value['maRap'] ?>"></i>
                 </td>
             </tr>
         <?php endforeach; ?>
 
     </tbody>
 </table>
+
+<div class="box-model">
+    <div class="modal fade" id="addDataAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addDataAdmin" style="text-align: center; ">Update dữ liệu</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="maPhong" class="col-form-label">Mã phòng</label>
+                        <input name="maPhong" id="maPhong" class="form-control" type="text" placeholder="Mã phòng">
+                    </div>
+                    <div class="form-group">
+                        <label for="diaChi" class="col-form-label">Địa chỉ</label>
+                        <input name="diaChi" id="diaChi" class="form-control" type="text" placeholder="Địa chỉ">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/admin.js">
 
 
 <?php ?>
