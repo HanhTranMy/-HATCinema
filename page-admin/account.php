@@ -6,7 +6,7 @@ $dataGetAccount = getAllData($statementGetAccount, 1); ?>
 <h2 class="header-admin">QUẢN LÝ TÀI KHOẢN</h2>
 
 <div class="info d-flex justify-content-end">
-    <a class="btn-infomation box-shadow">Thêm thông tin</a>
+    <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin">Thêm thông tin</a>
 </div>
 
 <table class="table table-light table-hover">
@@ -57,18 +57,41 @@ $dataGetAccount = getAllData($statementGetAccount, 1); ?>
                 <span aria-hidden="true">&times;</span>
             </div>
             <div class="modal-body">
-                <form method="post" action="">
+                <form method="post" action="<div class="box-model">
+            <div class="modal fade" id="addDataAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="addDataAdmin" style="text-align: center; ">Thêm dữ liệu</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="">
+            
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary btn-modal">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+                    
                     <div class="form-group">
                         <label for="email" class="col-form-label" >Email</label>
-                        <input name="email" id="email" class="form-control" type="email" placeholder="Email" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="ten" class="col-form-label">Tên người dùng</label>
-                        <input name="ten" id="ten" class="form-control" type="text" placeholder="Tên Phim">
+                        <input name="email" id="email" class="form-control" type="email" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="matKhau" class="col-form-label">Mật khẩu</label>
                         <input name="matKhau" id="matKhau" class="form-control" type="text" placeholder="Mật khẩu">
+                    </div>
+                    <div class="form-group">
+                        <label for="ten" class="col-form-label">Tên người dùng</label>
+                        <input name="ten" id="ten" class="form-control" type="text" placeholder="Tên người dùng">
                     </div>
                     <div class="form-group">
                         <label for="sdt" class="col-form-label">Số điện thoại</label>
@@ -76,20 +99,21 @@ $dataGetAccount = getAllData($statementGetAccount, 1); ?>
                     </div>
                     <div class="form-group">
                     <label for="" class="col-form-label"> Loại tài khoản</label><br>
-                        <input type="radio" class="" name="admin" id="admin" value="0">
-                        <label for="admin"> User</label><br>
-                        <input type="radio" class="" name="admin" id="user" value="1">
-                        <label for="user"> Admin</label><br>
+                        <input type="radio" class="" name="admin" id="user" value="0">
+                        <label for="user"> User</label><br>
+                        <input type="radio" class="" name="admin" id="admin" value="1">
+                        <label for="admin"> Admin</label><br>
                     </div>
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" name="updateAccount" class="btn btn-primary btn-modal" onclick="updateAccount()">Send</button>
+                    <button type="button" name="updateAccount" class="btn btn-primary btn-modal" onclick="addAccount()">Send</button>
                 </div>
             </div>
         </div>
         </div>
     </div>
+    
 </div>
 <script src="./js/admin.js">
     <?php ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 15, 2022 lúc 09:24 PM
+-- Thời gian đã tạo: Th12 18, 2022 lúc 08:18 AM
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 8.1.10
 
@@ -32,6 +32,13 @@ CREATE TABLE `bapnuoc` (
   `tenSP` varchar(100) DEFAULT NULL,
   `gia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `bapnuoc`
+--
+
+INSERT INTO `bapnuoc` (`maBapNuoc`, `tenSP`, `gia`) VALUES
+(1, '100', 120);
 
 -- --------------------------------------------------------
 
@@ -67,44 +74,45 @@ CREATE TABLE `chitiethoadon` (
 
 CREATE TABLE `ghe` (
   `maGhe` int(11) NOT NULL,
-  `tinhtrang` bit(1) DEFAULT NULL
+  `tinhtrang` bit(1) DEFAULT NULL,
+  `loaiGhe` varchar(20) NOT NULL DEFAULT 'Thường'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `ghe`
 --
 
-INSERT INTO `ghe` (`maGhe`, `tinhtrang`) VALUES
-(1, b'0'),
-(2, b'0'),
-(3, b'0'),
-(4, b'0'),
-(5, b'0'),
-(6, b'0'),
-(7, b'0'),
-(8, b'0'),
-(9, b'0'),
-(10, b'0'),
-(11, b'0'),
-(12, b'0'),
-(13, b'0'),
-(14, b'0'),
-(15, b'0'),
-(16, b'0'),
-(17, b'0'),
-(18, b'0'),
-(19, b'0'),
-(20, b'0'),
-(21, b'0'),
-(22, b'0'),
-(23, b'0'),
-(24, b'0'),
-(25, b'0'),
-(26, b'0'),
-(27, b'0'),
-(28, b'0'),
-(29, b'0'),
-(30, b'0');
+INSERT INTO `ghe` (`maGhe`, `tinhtrang`, `loaiGhe`) VALUES
+(1, b'0', 'Thường'),
+(2, b'0', 'Couple'),
+(3, b'0', 'Thường'),
+(4, b'0', 'Couple'),
+(5, b'0', 'Thường'),
+(6, b'0', 'VIP'),
+(7, b'0', 'Thường'),
+(8, b'0', 'VIP'),
+(9, b'0', 'Thường'),
+(10, b'0', 'Couple'),
+(11, b'0', 'Thường'),
+(12, b'0', 'VIP'),
+(13, b'0', 'Thường'),
+(14, b'0', 'Couple'),
+(15, b'0', 'Thường'),
+(16, b'0', 'VIP'),
+(17, b'0', 'Thường'),
+(18, b'0', 'VIP'),
+(19, b'0', 'Thường'),
+(20, b'0', 'VIP'),
+(21, b'0', 'Thường'),
+(22, b'0', 'Couple'),
+(23, b'0', 'Thường'),
+(24, b'0', 'Couple'),
+(25, b'0', 'Thường'),
+(26, b'0', 'Thường'),
+(27, b'0', 'VIP'),
+(28, b'0', 'Thường'),
+(29, b'0', 'Thường'),
+(30, b'0', 'VIP');
 
 -- --------------------------------------------------------
 
@@ -120,6 +128,13 @@ CREATE TABLE `hoadon` (
   `maKM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `hoadon`
+--
+
+INSERT INTO `hoadon` (`maHD`, `ngayDat`, `email`, `tongTien`, `maKM`) VALUES
+(1, '2022-12-17', 'admin@gmail.com', 200, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -128,12 +143,40 @@ CREATE TABLE `hoadon` (
 
 CREATE TABLE `khuyenmai` (
   `maKM` int(11) NOT NULL,
-  `anh` varchar(255) DEFAULT NULL,
   `chuDe` varchar(255) NOT NULL,
   `noiDung` varchar(1000) NOT NULL,
+  `anh` varchar(255) DEFAULT NULL,
   `ngayBD` date NOT NULL,
   `ngayKT` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `khuyenmai`
+--
+
+INSERT INTO `khuyenmai` (`maKM`, `chuDe`, `noiDung`, `anh`, `ngayBD`, `ngayKT`) VALUES
+(1, 'Giảm 50k', 'Giảm 50k cho hóa đơn trên 200k', NULL, '2022-12-15', '2022-12-31');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `loaighe`
+--
+
+CREATE TABLE `loaighe` (
+  `maLoai` int(11) NOT NULL,
+  `tenLoai` varchar(20) DEFAULT NULL,
+  `phuThu` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `loaighe`
+--
+
+INSERT INTO `loaighe` (`maLoai`, `tenLoai`, `phuThu`) VALUES
+(1, 'Thường', 0),
+(2, 'Couple', 20),
+(3, 'VIP', 40);
 
 -- --------------------------------------------------------
 
@@ -145,7 +188,7 @@ CREATE TABLE `phim` (
   `maPhim` int(11) NOT NULL,
   `ngayBD` date NOT NULL,
   `ngayKT` date NOT NULL,
-  `anh` varchar(255) DEFAULT NULL,
+  `anh` varchar(255) DEFAULT './img/imgCard.jpg',
   `daoDien` varchar(255) DEFAULT NULL,
   `dienVien` varchar(255) DEFAULT NULL,
   `gia` int(11) NOT NULL,
@@ -164,21 +207,20 @@ CREATE TABLE `phim` (
 --
 
 INSERT INTO `phim` (`maPhim`, `ngayBD`, `ngayKT`, `anh`, `daoDien`, `dienVien`, `gia`, `hangPhim`, `phienBan`, `quocGia`, `tenPhim`, `theLoai`, `thoiLuong`, `trangThai`, `video`) VALUES
-(1, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'VietNam', 'Hạnh phúc máu', 'Tâm lý', 120, b'0', NULL),
-(2, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Việt Nam', 'Hạnh phúc máu', 'Tâm lý', 90, b'0', NULL),
-(3, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Avatar 2', 'Hành động', 120, b'0', NULL),
-(4, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Aquaman And The Lost Kingdom (2023)', 'Hành động', 180, b'0', NULL),
-(5, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Việt Nam', 'Captain Marvel 2 (2023)', 'Khoa học viễn tưởng', 180, b'0', NULL),
-(6, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Nhật Bản', 'Detective Conan: The Bride of Halloween', 'Hoạt hình', 120, b'0', NULL),
-(7, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'DC League of super pets', 'Hoạt hình', 120, b'0', NULL),
-(8, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Dead On The Nile', 'Tâm lý', 120, b'0', NULL),
-(9, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'The Lost City', 'Hài', 90, b'0', NULL),
-(10, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Escape Room', 'Kinh dị', 120, b'0', NULL),
-(11, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Việt Nam', 'Bạch Liên Hoa', 'Cổ trang', 120, b'0', NULL),
-(12, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'ViệtNam', 'Kẻ Độc Hành', 'Kinh dị - Hài', 120, b'0', NULL),
-(13, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Nhật Bản', 'Your Name', 'Tình cảm', 180, b'0', NULL),
-(14, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Moana', 'Tâm lý', 90, b'0', NULL),
-(15, '2022-12-06', '2022-12-31', NULL, NULL, NULL, 75000, NULL, NULL, 'Hồng Kông', 'Series IP Man 4', 'Võ thuật', 120, b'0', NULL);
+(1, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 180000, NULL, NULL, 'VietNam', 'Hạnh phúc máu', 'Tâm lý', 120, b'1', NULL),
+(2, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Rio 2', 'Hoạt hình', 90, b'0', NULL),
+(3, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Avatar 2', 'Hành động', 120, b'1', NULL),
+(4, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Aquaman And The Lost Kingdom (2023)', 'Hành động', 180, b'0', NULL),
+(5, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 180000, NULL, NULL, 'Việt Nam', 'Captain Marvel 2 (2023)', 'Khoa học viễn tưởng', 180, b'0', NULL),
+(6, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Nhật Bản', 'Detective Conan: The Bride of Halloween', 'Hoạt hình', 120, b'1', NULL),
+(7, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'DC League of super pets', 'Hoạt hình', 120, b'0', NULL),
+(8, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Dead On The Nile', 'Tâm lý', 120, b'0', NULL),
+(9, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'The Lost City', 'Hài', 90, b'0', NULL),
+(10, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 120000, NULL, NULL, 'Mỹ', 'Escape Room', 'Kinh dị', 120, b'0', NULL),
+(11, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Việt Nam', 'Bạch Liên Hoa', 'Cổ trang', 120, b'1', NULL),
+(12, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 120000, NULL, NULL, 'ViệtNam', 'Kẻ Độc Hành', 'Kinh dị - Hài', 120, b'1', NULL),
+(13, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Nhật Bản', 'Your Name', 'Tình cảm', 180, b'0', NULL),
+(14, '2022-12-06', '2022-12-31', './img/imgCard.jpg', NULL, NULL, 75000, NULL, NULL, 'Mỹ', 'Moana', 'Tâm lý', 90, b'0', NULL);
 
 -- --------------------------------------------------------
 
@@ -188,44 +230,45 @@ INSERT INTO `phim` (`maPhim`, `ngayBD`, `ngayKT`, `anh`, `daoDien`, `dienVien`, 
 
 CREATE TABLE `phong` (
   `maPhong` int(11) NOT NULL,
-  `maGhe` int(11) NOT NULL
+  `maGhe` int(11) NOT NULL,
+  `trangthai` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `phong`
 --
 
-INSERT INTO `phong` (`maPhong`, `maGhe`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 5),
-(1, 6),
-(1, 7),
-(1, 8),
-(1, 9),
-(1, 10),
-(2, 11),
-(2, 12),
-(2, 13),
-(2, 14),
-(2, 15),
-(2, 16),
-(2, 17),
-(2, 18),
-(2, 19),
-(2, 20),
-(3, 21),
-(3, 22),
-(3, 23),
-(3, 24),
-(3, 25),
-(3, 26),
-(3, 27),
-(3, 28),
-(3, 29),
-(3, 30);
+INSERT INTO `phong` (`maPhong`, `maGhe`, `trangthai`) VALUES
+(1, 1, b'0'),
+(1, 2, b'0'),
+(1, 3, b'0'),
+(1, 4, b'0'),
+(1, 5, b'0'),
+(1, 6, b'0'),
+(1, 7, b'0'),
+(1, 8, b'0'),
+(1, 9, b'0'),
+(1, 10, b'0'),
+(2, 11, b'0'),
+(2, 12, b'0'),
+(2, 13, b'0'),
+(2, 14, b'0'),
+(2, 15, b'0'),
+(2, 16, b'0'),
+(2, 17, b'0'),
+(2, 18, b'0'),
+(2, 19, b'0'),
+(2, 20, b'0'),
+(3, 21, b'0'),
+(3, 22, b'0'),
+(3, 23, b'0'),
+(3, 24, b'0'),
+(3, 25, b'0'),
+(3, 26, b'0'),
+(3, 27, b'0'),
+(3, 28, b'0'),
+(3, 29, b'0'),
+(3, 30, b'0');
 
 -- --------------------------------------------------------
 
@@ -238,6 +281,14 @@ CREATE TABLE `rap` (
   `maPhong` int(11) NOT NULL,
   `diachi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `rap`
+--
+
+INSERT INTO `rap` (`maRap`, `maPhong`, `diachi`) VALUES
+(1, 1, '123 Hai Bà Trưng Quận 1 TPHCM'),
+(2, 2, '72 Thành Thái Quận 10 TPHCM');
 
 -- --------------------------------------------------------
 
@@ -253,6 +304,13 @@ CREATE TABLE `taikhoan` (
   `sdt` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`email`, `matKhau`, `ten`, `admin`, `sdt`) VALUES
+('admin@gmail.com', '1234', 'hanh', b'1', '0878053999');
+
 -- --------------------------------------------------------
 
 --
@@ -263,8 +321,16 @@ CREATE TABLE `xuatchieu` (
   `maXC` int(11) NOT NULL,
   `ngaygio` date NOT NULL,
   `maPhong` int(11) NOT NULL,
-  `maPhim` int(11) NOT NULL
+  `maPhim` int(11) NOT NULL,
+  `maRap` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `xuatchieu`
+--
+
+INSERT INTO `xuatchieu` (`maXC`, `ngaygio`, `maPhong`, `maPhim`, `maRap`) VALUES
+(1, '2022-12-17', 2, 2, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -303,13 +369,20 @@ ALTER TABLE `ghe`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`maHD`),
-  ADD KEY `maKM` (`maKM`);
+  ADD KEY `maKM` (`maKM`),
+  ADD KEY `email` (`email`);
 
 --
 -- Chỉ mục cho bảng `khuyenmai`
 --
 ALTER TABLE `khuyenmai`
   ADD PRIMARY KEY (`maKM`);
+
+--
+-- Chỉ mục cho bảng `loaighe`
+--
+ALTER TABLE `loaighe`
+  ADD PRIMARY KEY (`maLoai`);
 
 --
 -- Chỉ mục cho bảng `phim`
@@ -343,7 +416,8 @@ ALTER TABLE `taikhoan`
 ALTER TABLE `xuatchieu`
   ADD PRIMARY KEY (`maXC`),
   ADD KEY `maPhong` (`maPhong`),
-  ADD KEY `maPhim` (`maPhim`);
+  ADD KEY `maPhim` (`maPhim`),
+  ADD KEY `maRap` (`maRap`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -353,7 +427,7 @@ ALTER TABLE `xuatchieu`
 -- AUTO_INCREMENT cho bảng `bapnuoc`
 --
 ALTER TABLE `bapnuoc`
-  MODIFY `maBapNuoc` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `maBapNuoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
@@ -377,13 +451,19 @@ ALTER TABLE `ghe`
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `maHD` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `maHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `khuyenmai`
 --
 ALTER TABLE `khuyenmai`
-  MODIFY `maKM` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `maKM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `loaighe`
+--
+ALTER TABLE `loaighe`
+  MODIFY `maLoai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `phim`
@@ -401,13 +481,13 @@ ALTER TABLE `phong`
 -- AUTO_INCREMENT cho bảng `rap`
 --
 ALTER TABLE `rap`
-  MODIFY `maRap` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `maRap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `xuatchieu`
 --
 ALTER TABLE `xuatchieu`
-  MODIFY `maXC` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `maXC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -426,13 +506,15 @@ ALTER TABLE `binhluan`
 ALTER TABLE `chitiethoadon`
   ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`maHD`) REFERENCES `hoadon` (`maHD`),
   ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`maXC`) REFERENCES `xuatchieu` (`maXC`),
-  ADD CONSTRAINT `chitiethoadon_ibfk_3` FOREIGN KEY (`maBapNuoc`) REFERENCES `bapnuoc` (`maBapNuoc`);
+  ADD CONSTRAINT `chitiethoadon_ibfk_3` FOREIGN KEY (`maBapNuoc`) REFERENCES `bapnuoc` (`maBapNuoc`),
+  ADD CONSTRAINT `chitiethoadon_ibfk_4` FOREIGN KEY (`maHD`) REFERENCES `hoadon` (`maHD`);
 
 --
 -- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`maKM`) REFERENCES `khuyenmai` (`maKM`);
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`maKM`) REFERENCES `khuyenmai` (`maKM`),
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`email`) REFERENCES `taikhoan` (`email`);
 
 --
 -- Các ràng buộc cho bảng `phong`
@@ -451,7 +533,8 @@ ALTER TABLE `rap`
 --
 ALTER TABLE `xuatchieu`
   ADD CONSTRAINT `xuatchieu_ibfk_1` FOREIGN KEY (`maPhong`) REFERENCES `phong` (`maPhong`),
-  ADD CONSTRAINT `xuatchieu_ibfk_2` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`);
+  ADD CONSTRAINT `xuatchieu_ibfk_2` FOREIGN KEY (`maPhim`) REFERENCES `phim` (`maPhim`),
+  ADD CONSTRAINT `xuatchieu_ibfk_3` FOREIGN KEY (`maRap`) REFERENCES `rap` (`maRap`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

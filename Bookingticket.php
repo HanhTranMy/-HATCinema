@@ -1,11 +1,8 @@
-<?php require('./conn/conn.php')?>
-<?php $sql = "SELECT * FROM premiere";
-    $sql1 = "SELECT * FROM movie_theater";
-     $result = $conn->query($sql);
-     $result1 = $conn->query($sql1);
-
-
+<?php
+$announce = "";
+require_once('./utils.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,16 +10,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/homepage.css">
@@ -31,7 +24,7 @@
     <link rel="stylesheet" href="./header.css">
     <link rel="stylesheet" href="./footer.css">
     <link rel="stylesheet" href="./css/Bookingticket.css">
-    
+
 
     <title>HAT CINEMA</title>
 
@@ -101,17 +94,40 @@
                 <span>Thời gian</span>
             </div>
             <div class="gr-time d-flex justify-content align-items-center flex-wrap">
-
-            <?php foreach ($result as $k => $v) {?>
-                <div class="time-item <?=($k==0)?"active":""?>">
-                    <span class="day"><?= date_format(date_create($v['day']),"D");?></span>
-                    <p class="mb-0 time"><?= date_format(date_create($v['day']),"d-m");?></p>
+                <div class="time-item active">
+                    <span class="day">Thứ 2</span>
+                    <p class="mb-0 time">1-9</p>
                 </div>
-                <?php }?>
+                <div class="time-item">
+                    <span class="day">Thứ 3</span>
+                    <p class="mb-0 time">1-9</p>
+                </div>
+                <div class="time-item">
+                    <span class="day">Thứ 4</span>
+                    <p class="mb-0 time">1-9</p>
+                </div>
+                <div class="time-item">
+                    <span class="day">Thứ 5</span>
+                    <p class="mb-0 time">1-9</p>
+                </div>
+                <div class="time-item">
+                    <span class="day">Thứ 6</span>
+                    <p class="mb-0 time">1-9</p>
+                </div>
+                <div class="time-item">
+                    <span class="day">Thứ 7</span>
+                    <p class="mb-0 time">1-9</p>
+                </div>
+                <div class="time-item">
+                    <span class="day">CN</span>
+                    <p class="mb-0 time">1-9</p>
+                </div>
             </div>
         </div>
     </div>
     <div class="wrap-offer">
+
+
         <div class="container">
             <div class="text-offer d-flex align-content-center justify-content-start">
                 <span class="title">Rạp đề xuất</span>
@@ -120,46 +136,50 @@
         </div>
         <div class="line1"></div>
 
-        <?php foreach ($result1 as $k => $v) {
-            $result2 = $conn->query("SELECT * FROM chair where id_movie_theater =".$v["id"]);
-            
-            ?>
-            <div class="container">
+        <?php
+        $getId = $_GET['id'];
+
+        $statement = "SELECT * FROM xuatchieu WHERE  maPhim = '$getId' ";
+        $data = getAllData($statement, 1);
+        $gioChieu = getAllData($statement, 1);
+
+        foreach ($data as $value) :
+            $id = $value['maRap'];
+            $diachi = getData("SELECT diachi FROM rap WHERE  maRap = $id ", 1);
+        ?>
+       
+        <div class="container">
             <div class="form-row  pt-5 pb-5">
                 <div class="col-md-6">
                     <div class="d-flex align-items-center justify-content-center">
                         <div class="item-left">
-                            <img src="<?=$v['photo']?>" width="100px" alt="">
                             <div class="btn-offer"><a href="">Tìm vị trí</a></div>
                         </div>
+
                         <div class="item-right">
-                            <span class="offer-name">
-                                <?=$v['name']?>
-                            </span>
                             <p class="offer-desc mb-0">
-                                <?=$v['address']?>
+                                <?php echo $diachi['diachi'] ?>
                             </p>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="tit-offer">2D Phụ đề</div>
                     <div class="gr-offer d-flex justify-content-start aling-items-center">
-                        <?php foreach ($result2 as $k2 => $v2) {?>
-                            <div class="item-offer">
-                                <span class="offer-time"><?=$v2['time']?></span>
-                                <p class="offer-time mb-0"><?=$v2['r_amount']?>/<?=$v2['amount']?> Ghế</p>
+                        <?php foreach ($gioChieu as $time) :
+                        ?>
+                            <div class="item-offer" id="<?php echo $time['maXC'] ?>">
+                                <span class="offer-time"> <?php echo $time['giochieu'] ?> </span>
                             </div>
-                        <?php }?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="line1"></div>
-       <?php } ?>
-       
-   
-   
+        <?php endforeach; ?>
+
+
     </div>
 
     <!-- end content -->
@@ -168,5 +188,15 @@
     <?php include_once('./footer.php') ?>
     <!-- End footer -->
 </body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".item-offer").click(function() {
+            var xc = $(this).attr("id");
+            var url = "chonghe.php" + "?id=" + xc;
+            window.location.href = url;
+        });
+    });
+</script>
 
 </html>
