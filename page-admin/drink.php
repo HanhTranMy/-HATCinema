@@ -8,7 +8,7 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
 <h2 class="header-admin">QUẢN LÝ BẮP NƯỚC</h2>
 
 <div class="info d-flex justify-content-end">
-    <a class="btn-infomation box-shadow">Thêm thông tin</a>
+    <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin">Thêm thông tin</a>
 </div>
 
 <table class="table table-light table-hover">
@@ -29,7 +29,7 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
                 <td contentEditable='true'  class='edit' id="tenSP_bapnuoc_<?php echo $value['maBapNuoc']; ?>_maBapNuoc"><?php echo $value['tenSP']; ?></td>
                 <td contentEditable='true'  class='edit' id="gia_bapnuoc_<?php echo $value['maBapNuoc']; ?>_maBapNuoc"><?php echo $value['gia']; ?></td>
                 <td>
-                    <i class="fas fa-trash maBapNuoc bapnuoc" id="<?php $value['maBapNuoc'] ?>" onclick="deleteData(<?php echo $value['maBapNuoc'] ?>,3)"></i>
+                    <i class="fas fa-trash maBapNuoc bapnuoc" id="<?php echo $value['maBapNuoc']?>"></i>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -53,13 +53,13 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
                         <input name="tenSP" id="tenSP" class="form-control" type="text" placeholder="Tên sản phẩm">
                     </div>
                     <div class="form-group">
-                        <label for="gia" class="col-form-label">Đạo diễn</label>
-                        <input name="gia" id="gia" class="form-control" type="text" placeholder="Đạo diễn">
+                        <label for="gia" class="col-form-label">Giá</label>
+                        <input name="gia" id="gia" class="form-control" type="text" placeholder="Giá">
                     </div>
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                    <button type="button" class="btn btn-primary btn-modal" onclick="addBapNuoc()">Send</button>
                 </div>
             </div>
         </div>

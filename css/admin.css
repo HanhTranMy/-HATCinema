@@ -1,7 +1,7 @@
 body{
     background: linear-gradient(#151223,#291947);
     background-repeat: no-repeat;
-    margin: 180px 0px 90px 0px;
+    margin: 180px 0px 0px 0px;
 
     }   
 
@@ -44,4 +44,10 @@ background-clip: text;
 
 .btn-infomation:hover, i:hover{
     opacity: 0.7;
+}
+
+.table-header-overall{
+    text-align: center;
+    padding: 20px;
+    color: #fff;
 }

@@ -6,7 +6,7 @@ $dataGetFlim = getAllData($statementGetFlim, 1); ?>
 <h2 class="header-admin">QUẢN LÝ PHIM</h2>
 
 <div class="info d-flex justify-content-end">
-    <a class="btn-infomation box-shadow">Thêm thông tin</a>
+    <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin" >Thêm thông tin</a>
 </div>
 
 <table class="table table-light table-hover">
@@ -110,13 +110,17 @@ $dataGetFlim = getAllData($statementGetFlim, 1); ?>
                     <input name="ngayKT" id="ngayKT" class="form-control" type="date" placeholder="Ngày kết thúc">
                     </div>
                     <div class="form-group">
+                    <label for="trangThai" class="col-form-label">Trạng thái phim</label>
+                    <input name="trangThai" id="trangThai" class="form-control" type="text" placeholder="Nhập 0: sắp chiếu, nhập 1: đang chiếu">
+                    </div>
+                    <div class="form-group">
                     <label for="anh" class="col-form-label">Link file ảnh</label>
                     <input name="anh" id="anh" class="form-control" type="text" placeholder="Link ảnh">
                     </div>
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                    <button type="button" class="btn btn-primary btn-modal" onclick="addFilm()">Send</button>
                 </div>
             </div>
           </div>

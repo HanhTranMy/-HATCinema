@@ -36,7 +36,7 @@
 
      <?php include_once('./navbar.php') ?> 
     <!-- Start a carousel -->
-    <!-- <div id="demo" class="carousel slide" data-ride="carousel"> -->
+    <div id="demo" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
         <ul class="carousel-indicators">
@@ -76,7 +76,7 @@
             
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card" id = "<?php echo $value['maPhim']?>" >                
-                <img class="card-img-top" src="<?php echo $value['anh'];?>" alt="Card image" width="300px">
+                <img class="card-img-top" style="height: 213px" src="<?php echo $value['anh'];?>" alt="Card image" width="300px">
                 <div class="card-body">
                     <a href="#">
                         <h4 class="card-title overflow-text"><?php echo $value['tenPhim']; ?></h4>
@@ -109,7 +109,7 @@
             
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card" id = "<?php echo $value['maPhim']?>">                
-                    <img class="card-img-top" src="<?php echo $value['anh'];?>" alt="Card image" width="300px">
+                    <img class="card-img-top" style="height: 213px" src="<?php echo $value['anh'];?>" alt="Card image" width="300px">
                     <div class="card-body">
                         <div>
                             <h4 class="card-title overflow-text"><?php echo $value['tenPhim']; ?></h4>
@@ -135,25 +135,25 @@
         <div class="row">
             <div class="col-9">
                 <div class="row  content-promotion content-promotion-large">
-                    <img class="img-promotion-large" src="./img/22.jpg">
+                    <img class="img-promotion-large" src="./img/promotion.png">
                 </div>
                 <div class="row content-promotion content-promotion-large">
-                    <img class="img-promotion-large" src="./img/22.jpg">
+                    <img class="img-promotion-large" src="./img/promotion.png">
                 </div>
             </div>
             <div class="col-3">
                 <div class="row">
 
                     <div class="col-12 content-promotion content-promotion-small">
-                        <img src="./img/22.jpg">
+                        <img src="./img/22.png">
                     </div>
 
                     <div class="col-12 content-promotion content-promotion-small">
-                        <img src="./img/22.jpg">
+                        <img src="./img/22.png">
                     </div>
 
                     <div class="col-12 content-promotion content-promotion-small">
-                        <img src="./img/22.jpg">
+                        <img src="./img/22.png">
                     </div>
 
                 </div>

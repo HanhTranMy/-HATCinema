@@ -6,7 +6,7 @@ $dataGetCinema = getAllData($statementGetCinema, 1); ?>
 <h2 class="header-admin">QUẢN LÝ RẠP PHIM</h2>
 
 <div class="info d-flex justify-content-end">
-    <a class="btn-infomation box-shadow">Thêm thông tin</a>
+    <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin">Thêm thông tin</a>
 </div>
 
 <table class="table table-light table-hover">
@@ -48,7 +48,7 @@ $dataGetCinema = getAllData($statementGetCinema, 1); ?>
                 <form method="post" action="">
                     <div class="form-group">
                         <label for="maPhong" class="col-form-label">Mã phòng</label>
-                        <input name="maPhong" id="maPhong" class="form-control" type="text" placeholder="Mã phòng">
+                        <input name="maPhong" id="maPhong" class="form-control" type="number" placeholder="Mã phòng">
                     </div>
                     <div class="form-group">
                         <label for="diaChi" class="col-form-label">Địa chỉ</label>
@@ -57,7 +57,7 @@ $dataGetCinema = getAllData($statementGetCinema, 1); ?>
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                    <button type="button" class="btn btn-primary btn-modal" onclick = "addCinema()">Send</button>
                 </div>
             </div>
         </div>

@@ -61,6 +61,7 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
                         <li class="nav-item" id="drink"><a class="nav-link text-white" href="#">Bắp nước</a></li>
                         <li class="nav-item" id="promotion-admin"><a class="nav-link text-white" href="#">Khuyến mãi</a></li>
                         <li class="nav-item" id="showtime"><a class="nav-link text-white" href="#">Suất chiếu</a></li>
+                        <li class="nav-item" id="overall"><a class="nav-link text-white" href="#">Tổng quan</a></li>
 
                     </ul>
 
@@ -91,7 +92,7 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
         <h2 class="header-admin">QUẢN LÝ HÓA ĐƠN</h2>
 
         <div class="info d-flex justify-content-end">
-            <a class="btn-infomation box-shadow">Thêm thông tin</a>
+            <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin">Thêm thông tin</a>
         </div>
 
         <table class="table table-light table-hover">
@@ -139,42 +140,42 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
         </table>
 
         <div class="box-model">
-            <div class="modal fade" id="addDataAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="addDataAdmin" style="text-align: center; ">Thêm dữ liệu</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+    <div class="modal fade" id="addDataAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="addDataAdmin" style="text-align: center; ">Update dữ liệu</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="">
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email</label>
+                            <input name="email" id="email" class="form-control email " type="email" placeholder="Email">
                         </div>
-                        <div class="modal-body">
-                            <form method="post" action="">
-                                <div class="form-group">
-                                    <label for="email" class="col-form-label">Email</label>
-                                    <input name="email" id="email" class="form-control" type="email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="ngayDat" class="col-form-label">Ngày bán</label>
-                                    <input name="ngayDat" id="ngayDat" class="form-control" type="text" placeholder="Tên Phim">
-                                </div>
-                                <div class="form-group">
-                                    <label for="tongTien" class="col-form-label">Tổng hóa đơn</label>
-                                    <input name="tongTien" id="tongTien" class="form-control" type="text" placeholder="Diễn viên">
-                                </div>
-                                <div class="form-group">
-                                    <label for="maKM" class="col-form-label">Thể Loại</label>
-                                    <input name="maKM" id="maKM" class="form-control" type="text" placeholder="Thể Loại">
-                                </div>
-                            </form>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary btn-modal">Send</button>
-                            </div>
+                        <div class="form-group">
+                            <label for="ngayDat" class="col-form-label">Ngày bán</label>
+                            <input name="ngayDat" id="ngayDat" class="form-control" type="date" placeholder="ngatDat">
                         </div>
+                        <div class="form-group">
+                            <label for="tongTien" class="col-form-label">Tổng hóa đơn</label>
+                            <input name="tongTien" id="tongTien" class="form-control" type="text" placeholder="tongTien">
+                        </div>
+                        <div class="form-group">
+                            <label for="maKM" class="col-form-label">Mã khuyến mãi</label>
+                            <input name="maKM" id="maKM" class="form-control" type="text" placeholder="maKM">
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-modal" onclick="addBill()">Send</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
     </div>
 
 

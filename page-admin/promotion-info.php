@@ -7,7 +7,7 @@ print_r($dataGetPromotion);
 <h2 class="header-admin">QUẢN LÝ KHUYẾN MÃI</h2>
 
 <div class="info d-flex justify-content-end">
-    <a class="btn-infomation box-shadow">Thêm thông tin</a>
+    <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin">Thêm thông tin</a>
 </div>
 
 <table class="table table-light table-hover">
@@ -34,7 +34,7 @@ print_r($dataGetPromotion);
                 <td contentEditable='true'  class='edit' id="chuDe_khuyenmai_<?php echo $value['maKM']; ?>_maKM"><?php echo $value['ngayBD']; ?></td>
                 <td contentEditable='true'  class='edit' id="chuDe_khuyenmai_<?php echo $value['maKM']; ?>_maKM"><?php echo $value['ngayKT']; ?></td>
                 <td>
-                    <i class="fas fa-trash maKM khuyenmai" id="<?php $value['maKM'] ?>"></i>
+                    <i class="fas fa-trash maKM khuyenmai" id="<?php echo $value['maKM'] ?>"></i>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -76,7 +76,7 @@ print_r($dataGetPromotion);
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                    <button type="button" class="btn btn-primary btn-modal" onclick="addKhuyenMai()">Send</button>
                 </div>
             </div>
         </div>

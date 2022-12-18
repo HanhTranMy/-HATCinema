@@ -78,18 +78,36 @@
                         <div class="btn"><a href="#" >Phim đã xem</a></div>
                         <div class="btn"><a href="#" >Đánh giá</a></div>
                     </div>
-
-                    <div class="col-12 col-md-6 pt-3 col-lg-4 p-0 pr-lg-1 pl-md-2 pl-lg-0">
+                   
+<?php
+// nhac may ban lam trang admin, luc add phim phai cho anh dai dien chu
+                            $data = getAllData('SElECT * FROM phim', 1);
+    foreach($data as $item ){
+        ?>
+      <div class="col-12 col-md-6 pt-3 col-lg-4 p-0 pr-lg-1 pl-md-2 pl-lg-0">
                         <div class="card" >
-                            <img class="card-img-top" src="./img/20.jpg" alt="Card image" width="300px">
+                            <img class="card-img-top" src="./img/<?=$item['anh']?>" alt="Card image" width="300px">
                             <div class="card-body">
                                 <a href="#">
-                                    <h4 class="card-title overflow-text">Name</h4>
-                                    <p class="card-text overflow-text">Some example text.</p>
+                                    <h4 class="card-title overflow-text"><?=$item['tenPhim']?></h4>
+                                    <p class="card-text overflow-text"><?=$item['gia']?> VND</p>
                                 </a>
                             </div>
                         </div>
                     </div>
+
+<?php    } ?>
+ 
+
+
+
+              
+
+
+
+
+
+
                     <div class="col-12 col-md-6 pt-3 col-lg-4 p-0 pr-lg-1 pl-md-2 pl-lg-0">
                         <div class="card" >
                             <img class="card-img-top" src="./img/2.jpg" alt="Card image" width="300px">
