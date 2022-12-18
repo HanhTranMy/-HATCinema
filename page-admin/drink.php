@@ -29,14 +29,45 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
                 <td><?php echo $value['tenSP']; ?></td>
                 <td><?php echo $value['gia']; ?></td>
                 <td>
-                    <i class="fas fa-edit" id="<?php $value['maBapNuoc'] ?>"> </i>
-                    <i class="fas fa-trash" id="<?php $value['maBapNuoc'] ?>"></i>
+                    <i class="fas fa-edit" id="<?php $value['maBapNuoc'] ?>" data-toggle="modal" data-target="#addDataAdmin"></i>
+                    <i class="fas fa-trash maBapNuoc bapnuoc" id="<?php $value['maBapNuoc'] ?>" onclick="deleteData(<?php echo $value['maBapNuoc'] ?>,3)"></i>
                 </td>
             </tr>
         <?php endforeach; ?>
 
     </tbody>
 </table>
+
+<div class="box-model">
+    <div class="modal fade" id="addDataAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addDataAdmin" style="text-align: center; ">Update dữ liệu</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="tenSP" class="col-form-label">Tên sản phẩm</label>
+                        <input name="tenSP" id="tenSP" class="form-control" type="text" placeholder="Tên sản phẩm">
+                    </div>
+                    <div class="form-group">
+                        <label for="gia" class="col-form-label">Đạo diễn</label>
+                        <input name="gia" id="gia" class="form-control" type="text" placeholder="Đạo diễn">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<script src="./js/admin.js">
 
 
 <?php ?>

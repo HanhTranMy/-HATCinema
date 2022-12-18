@@ -34,14 +34,58 @@ print_r($dataGetPromotion);
                 <td><?php echo $value['ngayBD']; ?></td>
                 <td><?php echo $value['ngayKT']; ?></td>
                 <td>
-                    <i class="fas fa-edit" id="<?php $value['maKM'] ?>"> </i>
-                    <i class="fas fa-trash" id="<?php $value['maKM'] ?>"></i>
+                    <i class="fas fa-edit" id="<?php $value['maKM'] ?>" data-toggle="modal" data-target="#addDataAdmin"> </i>
+                    <i class="fas fa-trash maKM khuyenmai" id="<?php $value['maKM'] ?>"></i>
                 </td>
             </tr>
         <?php endforeach; ?>
 
     </tbody>
 </table>
+
+<div class="box-model">
+    <div class="modal fade" id="addDataAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addDataAdmin" style="text-align: center; ">Update dữ liệu</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="chuDe" class="col-form-label">Tên khuyến mãi</label>
+                        <input name="chuDe" id="chuDe" class="form-control" type="text" placeholder="Tên khuyến mãi">
+                    </div>
+                    <div class="form-group">
+                        <label for="noiDung" class="col-form-label">Nội dung</label>
+                        <textarea class="form-control" id="noiDung">Nội dung</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="anh" class="col-form-label">Link ảnh</label>
+                        <input name="anh" id="anh" class="form-control" type="text" placeholder="Link ảnh">
+                    </div>
+                    <div class="form-group">
+                        <label for="ngayBD" class="col-form-label">Ngày bắt đầu</label>
+                        <input name="ngayBD" id="ngayBD" class="form-control" type="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="ngayKT" class="col-form-label">Ngày kết thúc</label>
+                        <input name="ngayKT" id="ngayKT" class="form-control" type="date">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/admin.js">
 
 
 <?php ?>
