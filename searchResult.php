@@ -60,7 +60,7 @@
 					$start_from = ($page-1) * $per_page_record;
 					$maxPage = $per_page_record + $start_from;
 					$sV = getPOST('search');
-					$query = "SELECT anh,tenPhim,theLoai FROM phim where tenPhim Like '%$sV%' LIMIT $start_from, $maxPage";
+					$query = "SELECT maPhim,anh,tenPhim,theLoai FROM phim where tenPhim Like '%$sV%' LIMIT $start_from, $maxPage";
 					$select = getAllData($query,1);
 					$countCol = 0;
 				?>
@@ -122,6 +122,7 @@
 				?>
 			</div>
 		<?php include_once('./footer.php') ?>
+		<script src="./js/handleGoToDetail.js"></script>
 	</div>
 </body>
 </html>
