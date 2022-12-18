@@ -36,7 +36,7 @@
 
      <?php include_once('./navbar.php') ?> 
     <!-- Start a carousel -->
-    <!-- <div id="demo" class="carousel slide" data-ride="carousel"> -->
+    <div id="demo" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
         <ul class="carousel-indicators">
@@ -67,7 +67,7 @@
                 <h3 class="font-weight-700 text-white title-large">PHIM SẮP CHIẾU</h3>
             </div>
             <div class="col-6 d-flex justify-content-end">
-                <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
+                <a href="./upcoming.php" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
             </div>
         </div>
         <div class="row">
@@ -100,7 +100,7 @@
                 <h3 class="font-weight-700 text-white title-large">PHIM ĐANG CHIẾU</h3>
             </div>
             <div class="col-6 d-flex justify-content-end">
-                <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
+                <a href="./nowShowing.php" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>
             </div>
         </div>
         <div class="row">
@@ -135,25 +135,25 @@
         <div class="row">
             <div class="col-9">
                 <div class="row  content-promotion content-promotion-large">
-                    <img class="img-promotion-large" src="./img/22.jpg">
+                    <img class="img-promotion-large" src="./img/promotion.png">
                 </div>
                 <div class="row content-promotion content-promotion-large">
-                    <img class="img-promotion-large" src="./img/22.jpg">
+                    <img class="img-promotion-large" src="./img/promotion.png">
                 </div>
             </div>
             <div class="col-3">
                 <div class="row">
 
                     <div class="col-12 content-promotion content-promotion-small">
-                        <img src="./img/22.jpg">
+                        <img src="./img/22.png">
                     </div>
 
                     <div class="col-12 content-promotion content-promotion-small">
-                        <img src="./img/22.jpg">
+                        <img src="./img/22.png">
                     </div>
 
                     <div class="col-12 content-promotion content-promotion-small">
-                        <img src="./img/22.jpg">
+                        <img src="./img/22.png">
                     </div>
 
                 </div>
