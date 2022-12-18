@@ -1,5 +1,8 @@
 <?php
+require_once('./utils.php');
 
+$statementGetBill = "SELECT ngayDat,email,tongTien,maKM FROM hoadon";
+$dataGetBill = getAllData($statementGetBill, 1); ?>
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +22,9 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/admin.css">
+    <link rel="stylesheet" href="./css/modal_box.css">
+
     <script src="./js/admin.js">
-        $("#film").click(function() {
-            alert("film clicked");
-            // $(".body").load("./page-admin/film.php");
-        });
     </script>
 
     <title>Admin HAT Cinema</title>
@@ -43,12 +44,13 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav mr-auto heading">
-                        <li class="nav-item active"><a class="nav-link text-white" href="#">ADMIN</a></li>
+                        <li class="nav-item active" id="bill"><a class="nav-link text-white" href="#">ADMIN</a></li>
                         <li class="nav-item" id="account"><a class="nav-link text-white" href="#">Tài khoản</a></li>
                         <li class="nav-item" id="film"><a class="nav-link text-white" href="#">Phim</a></li>
                         <li class="nav-item" id="cinema"><a class="nav-link text-white" href="#">Rạp</a></li>
                         <li class="nav-item" id="drink"><a class="nav-link text-white" href="#">Bắp nước</a></li>
                         <li class="nav-item" id="promotion-admin"><a class="nav-link text-white" href="#">Khuyến mãi</a></li>
+                        
                     </ul>
 
                     <ul class="nav navbar-nav mr-5 heading">
@@ -62,9 +64,7 @@
                                     echo "Đăng nhập";
                                 }
 
-
                                 ?>
-
                                 <span> <img src="./img/ic_user.png" alt="" class="img-user"> </span></a></li>
                     </ul>
 
@@ -76,7 +76,84 @@
     <!-- End a nav -->
     <!-- Start a body -->
     <div class="body">
-   
+
+        <h2 class="header-admin">QUẢN LÝ HÓA ĐƠN</h2>
+
+        <div class="info d-flex justify-content-end">
+            <a class="btn-infomation box-shadow">Thêm thông tin</a>
+        </div>
+
+        <table class="table table-light table-hover">
+            <thead class="thead-purple ">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Ngày bán</th>
+                    <th scope="col">Tổng hóa đơn</th>
+                    <th scope="col">Mã khuyến mãi</th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $count = 0;
+                foreach ($dataGetBill as $value) :  ?>
+                    <tr>
+                        <th scope="col"><?php $count += 1;
+                                        echo $count; ?></th>
+                        <td><?php echo $value['email']; ?></td>
+                        <td><?php echo $value['ngayDat']; ?></td>
+                        <td><?php echo $value['tongTien']; ?></td>
+                        <td><?php if ($value['maKM'] == 0) echo "User";
+                            else echo "Admin"; ?></td>
+                        <td>
+                            <i class="fas fa-edit" data-toggle="modal" data-target="#addDataAdmin" id="<?php echo $count ?>"> </i>
+                            <i class="fas fa-trash email taikhoan" id="<?php echo $value['email'] ?>"></i>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
+            </tbody>
+        </table>
+
+        <div class="box-model">
+            <div class="modal fade" id="addDataAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="addDataAdmin" style="text-align: center; ">Thêm dữ liệu</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label for="email" class="col-form-label">Email</label>
+                                    <input name="email" id="email" class="form-control" type="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ngayDat" class="col-form-label">Ngày bán</label>
+                                    <input name="ngayDat" id="ngayDat" class="form-control" type="text" placeholder="Tên Phim">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tongTien" class="col-form-label">Tổng hóa đơn</label>
+                                    <input name="tongTien" id="tongTien" class="form-control" type="text" placeholder="Diễn viên">
+                                </div>
+                                <div class="form-group">
+                                    <label for="maKM" class="col-form-label">Thể Loại</label>
+                                    <input name="maKM" id="maKM" class="form-control" type="text" placeholder="Thể Loại">
+                                </div>
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary btn-modal">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
