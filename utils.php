@@ -147,6 +147,7 @@ function login()
         $statement = "SELECT ten FROM taikhoan WHERE email = '$email'";
         $data =  getData($statement,1);
         $_SESSION['username'] = $data;
+        $_SESSION['email-user'] = $email;
         if (checkAdminAccount($email)){
             $_SESSION['admin'] = true;
             header('location: admin.php');
