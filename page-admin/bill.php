@@ -1,12 +1,17 @@
 <?php
 require_once('../utils.php');
 
+    $statement = "SELECT SUM(tongTien) FROM hoadon";
+    $total = getData($statement,0);
+    echo $total;
+
+
 $statementGetBill = "SELECT maHD,ngayDat,email,tongTien,maKM FROM hoadon";
 $dataGetBill = getAllData($statementGetBill, 1); ?>
 <h2 class="header-admin">QUẢN LÝ HÓA ĐƠN</h2>
 
 <div class="info d-flex justify-content-end">
-    <a class="btn-infomation box-shadow">Thêm thông tin</a>
+    <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin">Thêm thông tin</a>
 </div>
 
 <table class="table table-light table-hover">
@@ -45,7 +50,7 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
                 <td contentEditable='true' class='edit' id="tongTien_hoadon_<?php echo $maHD;?>_maHD"><?php echo $tongTien ?></td>
                 <td contentEditable='true' class='edit' id="maKM_hoadon_<?php echo $maHD;?>_maHD"><?php echo $maKM ?></td>
                 <td>
-                    <i class="fas fa-trash email taikhoan" id="<?php echo $value['email'] ?>"></i>
+                    <i class="fas fa-trash maHD hoadon" id="<?php echo $value['maHD'] ?>"></i>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -70,20 +75,20 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
                         </div>
                         <div class="form-group">
                             <label for="ngayDat" class="col-form-label">Ngày bán</label>
-                            <input name="ngayDat" id="ngayDat" class="form-control" type="text" placeholder="Tên Phim">
+                            <input name="ngayDat" id="ngayDat" class="form-control" type="date" placeholder="ngatDat">
                         </div>
                         <div class="form-group">
                             <label for="tongTien" class="col-form-label">Tổng hóa đơn</label>
-                            <input name="tongTien" id="tongTien" class="form-control" type="text" placeholder="Diễn viên">
+                            <input name="tongTien" id="tongTien" class="form-control" type="text" placeholder="tongTien">
                         </div>
                         <div class="form-group">
-                            <label for="maKM" class="col-form-label">Thể Loại</label>
-                            <input name="maKM" id="maKM" class="form-control" type="text" placeholder="Thể Loại">
+                            <label for="maKM" class="col-form-label">Mã khuyến mãi</label>
+                            <input name="maKM" id="maKM" class="form-control" type="text" placeholder="maKM">
                         </div>
                     </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary btn-modal" onClick="">Send</button>
+                        <button type="button" class="btn btn-primary btn-modal" onclick="addBill()">Send</button>
                     </div>
                 </div>
             </div>

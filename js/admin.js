@@ -31,6 +31,10 @@ $(document).ready(function () {
     $(".body").load("./page-admin/showtime.php");
   });
 
+  $("#overall").click(function () {
+    $(".body").load("./page-admin/overall.php");
+  });
+
   $(".fa-trash").click(function () {
     let id = $(this).attr("id");
 
@@ -83,35 +87,6 @@ $(document).ready(function () {
   });
 });
 
-// function updateDataAccount(id,col){
-//   console.log(id);
-//   console.log(col);
-//   ID = id;
-//   ROW = col;
-//   $(".modal-body #email").val(ID);
-// }
-
-// function updateAccount(){
-
-//   $.ajax({
-//     type: "post",
-//     url: "./page-admin/deleteData.php",
-//     data: {
-//       updateRowAccount: "updateRow",
-//       email: $("#email").val().trim(),
-//       ten: $("#ten").val().trim(),
-//       matKhau: $("#matKhau").val().trim(),
-//       sdt: $("#sdt").val().trim(),
-//       admin: $("input[name=admin]:checked").val().trim()
-//     },
-//     success: function (response) {
-//       if (response == "success") {
-//         let row = ($("#"+ROW));
-//         console.log(row);
-//       }
-//     },
-//   });
-// }
 
 function addAccount() {
   let ten = $("#ten").val().trim();
@@ -133,8 +108,9 @@ function addAccount() {
     },
     success: function (response) {
       if (response == "success") {
-        let row = $("#" + ROW);
-        console.log(row);
+        alert("Thêm dữ liệu thành công!");
+      }else{
+        alert("Thêm dữ liệu thất bại!");
       }
     },
   });
@@ -149,6 +125,10 @@ function addFilm() {
   let theLoai = $("#theLoai").val().trim();
   let thoiLuong = $("#thoiLuong").val().trim();
   let trangThai = $("#trangThai").val().trim();
+  let hangPhim = $("#hangPhim").val().trim();
+  let phienBan = $("#phienBan").val().trim();
+  let dienVien = $("#dienVien").val().trim();
+  let daoDien = $("#daoDien").val().trim();
 
   $.ajax({
     type: "post",
@@ -163,11 +143,17 @@ function addFilm() {
       theLoai,
       thoiLuong,
       trangThai,
+      hangPhim,
+      phienBan,
+      dienVien,
+      daoDien
     },
     success: function (response) {
       if (response == "success") {
-        let row = $("#" + ROW);
-        console.log(row);
+        alert("Thêm dữ liệu thành công!");
+
+      }else{
+        alert("Thêm dữ liệu thất bại!");
       }
     },
   });
@@ -187,8 +173,9 @@ function addBapNuoc() {
     },
     success: function (response) {
       if (response == "success") {
-        let row = $("#" + ROW);
-        console.log(row);
+        alert("Thêm dữ liệu thành công!");
+      }else{
+        alert("Thêm dữ liệu thất bại!");
       }
     },
   });
@@ -212,8 +199,7 @@ function addKhuyenMai() {
     },
     success: function (response) {
       if (response == "success") {
-        let row = $("#" + ROW);
-        console.log(row);
+        alert("Thêm dữ liệu thành công!");
       }
     },
   });
@@ -233,12 +219,62 @@ function addXuatChieu() {
       ngaygio,
       maPhong,
       maPhim,
-      maRap,
+      maRap
     },
     success: function (response) {
       if (response == "success") {
-        let row = $("#" + ROW);
-        console.log(row);
+        alert("Thêm dữ liệu thành công!");
+      }else{
+        alert("Thêm dữ liệu thất bại!");
+      }
+    },
+  });
+}
+
+function addBill() {
+  let email = $("#email").val().trim();
+  let ngayDat = $("#ngayDat").val().trim();
+  let tongTien = $("#tongTien").val().trim();
+  let maKM = $("#maKM").val().trim();
+
+  $.ajax({
+    type: "post",
+    url: "./page-admin/addDataAdmin.php",
+    data: {
+      target: "hoadon",
+      email,
+      ngayDat,
+      tongTien,
+      maKM
+    },
+    success: function (response) {
+      if (response == "success") {
+        alert("Thêm dữ liệu thành công!");
+      }else{
+        alert("Thêm dữ liệu thất bại!");
+      }
+    },
+  });
+}
+
+function addCinema() {
+  let diaChi = $("#diaChi").val().trim();
+  let maPhong = $("#maPhong").val().trim();
+
+  $.ajax({
+    type: "post",
+    url: "./page-admin/addDataAdmin.php",
+    data: {
+      target: "rap",
+      maPhong,
+      diaChi,
+    },
+    success: function (response) {
+      if (response == "success") {
+        alert("Thêm dữ liệu thành công!");
+      }
+      else{
+        alert("Thêm dữ liệu thất bại!");
       }
     },
   });

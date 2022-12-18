@@ -8,7 +8,7 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
 <h2 class="header-admin">QUẢN LÝ XUẤT CHIẾU</h2>
 
 <div class="info d-flex justify-content-end">
-    <a class="btn-infomation box-shadow">Thêm thông tin</a>
+    <a class="btn-infomation box-shadow" data-toggle="modal" data-target="#addDataAdmin">Thêm thông tin</a>
 </div>
 
 <table class="table table-light table-hover">
@@ -37,7 +37,7 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
                 <td contentEditable='true'  class='edit' id="ngayGio_xuatchieu_<?php echo $value['maXC']; ?>_maXC"><?php echo $value['ngaygio']; ?></td>
 
                 <td>
-                    <i class="fas fa-trash maXC xuatchieu" id="<?php $value['maXC'] ?>" onclick="deleteData(<?php echo $value['maXC'] ?>,5)"></i>
+                    <i class="fas fa-trash maXC xuatchieu" id="<?php echo $value['maXC']?>"></i>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -57,17 +57,25 @@ $dataGetDrink = getAllData($statementGetDrink, 1); ?>
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="form-group">
-                        <label for="tenSP" class="col-form-label">Tên sản phẩm</label>
-                        <input name="tenSP" id="tenSP" class="form-control" type="text" placeholder="Tên sản phẩm">
+                        <label for="ngaygio" class="col-form-label">Ngày giờ chiếu</label>
+                        <input name="ngaygio" id="ngaygio" class="form-control" type="date" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label for="gia" class="col-form-label">Đạo diễn</label>
-                        <input name="gia" id="gia" class="form-control" type="text" placeholder="Đạo diễn">
+                        <label for="maPhong" class="col-form-label">Mã Phòng</label>
+                        <input name="maPhong" id="maPhong" class="form-control" type="text" placeholder="Mã Phòng">
+                    </div>
+                    <div class="form-group">
+                        <label for="maPhim" class="col-form-label">Mã Phim</label>
+                        <input name="maPhim" id="maPhim" class="form-control" type="text" placeholder="Mã Phim">
+                    </div>
+                    <div class="form-group">
+                        <label for="maRap" class="col-form-label">Mã Rạp</label>
+                        <input name="maRap" id="maRap" class="form-control" type="text" placeholder="Mã Rạp">
                     </div>
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-modal">Send</button>
+                    <button type="button" class="btn btn-primary btn-modal" onclick="addXuatChieu()">Send</button>
                 </div>
             </div>
         </div>
