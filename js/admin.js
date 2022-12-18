@@ -90,9 +90,6 @@ $(document).ready(function () {
       },
     });
   });
-
-
-
 });
 
 // function updateDataAccount(id,col){
@@ -129,8 +126,35 @@ function addAccount() {
   let ten = $("#ten").val().trim();
   let sdt = $("#sdt").val().trim();
   let admin = $("#admin").is(":checked") ? 1 : 0;
-  let matKhau = $("#matKhau").val.trim();
-  let email = $("email").val().trim();
+  let matKhau = $("#matKhau").val().trim();
+  let email = $("#email").val().trim();
+
+  $.ajax({
+    type: "post",
+    url: "./page-admin/addDataAdmin.php",
+    data: {
+      target: "taikhoan",
+      ten,
+      sdt,
+      admin,
+      matKhau,
+      email,
+    },
+    success: function (response) {
+      if (response == "success") {
+        let row = $("#" + ROW);
+        console.log(row);
+      }
+    },
+  });
+}
+
+function addFilm() {
+  let ten = $("#ten").val().trim();
+  let sdt = $("#sdt").val().trim();
+  let admin = $("#admin").is(":checked") ? 1 : 0;
+  let matKhau = $("#matKhau").val().trim();
+  let email = $("#email").val().trim();
 
   $.ajax({
     type: "post",
