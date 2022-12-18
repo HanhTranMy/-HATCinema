@@ -43,7 +43,6 @@
 	}
 
 	if ($_POST['target'] == 'khuyenmai') {
-		$maKM = getPOST('maKM');
 		$chuDe = getPOST('chuDe');
 		$noiDung = getPOST('noiDung');
 		$ngayBD = getPOST('ngayBD');
@@ -59,7 +58,7 @@
 		$maPhim = getPOST('maPhim');
 		$maRap = getPOST('maRap');
 		$target = getPOST('target');
-		
-		addData($target, "ngaygio, maPhong, maPhim, maRap", "'$ngaygio', '$maPhong', '$maPhim', '$maRap'")
+
+	addData($target, "ngaygio, maPhong, maPhim, maRap", "'$ngaygio', '$maPhong', '$maPhim', '$maRap'");
 	}
 ?>

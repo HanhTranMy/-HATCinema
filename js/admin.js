@@ -150,22 +150,99 @@ function addAccount() {
 }
 
 function addFilm() {
-  let ten = $("#ten").val().trim();
-  let sdt = $("#sdt").val().trim();
-  let admin = $("#admin").is(":checked") ? 1 : 0;
-  let matKhau = $("#matKhau").val().trim();
-  let email = $("#email").val().trim();
+  let ngayBD = $("#ngayBD").val().trim();
+  let ngayKT = $("#ngayKT").val().trim();
+  let gia = $("#gia").val().trim();
+  let quocGia = $("#quocGia").val().trim();
+  let tenPhim = $("#tenPhim").val().trim();
+  let theLoai = $("#theLoai").val().trim();
+  let thoiLuong = $("#thoiLuong").val().trim();
+  let trangThai = $("#trangThai").val().trim();
 
   $.ajax({
     type: "post",
     url: "./page-admin/addDataAdmin.php",
     data: {
-      target: "taikhoan",
-      ten,
-      sdt,
-      admin,
-      matKhau,
-      email,
+      target: "phim",
+      ngayBD,
+      ngayKT,
+      gia,
+      quocGia,
+      tenPhim,
+      theLoai,
+      thoiLuong,
+      trangThai,
+    },
+    success: function (response) {
+      if (response == "success") {
+        let row = $("#" + ROW);
+        console.log(row);
+      }
+    },
+  });
+}
+
+function addBapNuoc() {
+  let tenSP = $("#tenSP").val().trim();
+  let gia = $("#gia").val().trim();
+
+  $.ajax({
+    type: "post",
+    url: "./page-admin/addDataAdmin.php",
+    data: {
+      target: "bapnuoc",
+      tenSP,
+      gia,
+    },
+    success: function (response) {
+      if (response == "success") {
+        let row = $("#" + ROW);
+        console.log(row);
+      }
+    },
+  });
+}
+
+function addKhuyenMai() {
+  let chuDe = $("#chuDe").val().trim();
+  let noiDung = $("#noiDung").val().trim();
+  let ngayBD = $("#ngayBD").val().trim();
+  let ngayKT = $("#ngayKT").val().trim();
+
+  $.ajax({
+    type: "post",
+    url: "./page-admin/addDataAdmin.php",
+    data: {
+      target: "khuyenmai",
+      chuDe,
+      noiDung,
+      ngayBD,
+      ngayKT,
+    },
+    success: function (response) {
+      if (response == "success") {
+        let row = $("#" + ROW);
+        console.log(row);
+      }
+    },
+  });
+}
+
+function addXuatChieu() {
+  let ngaygio = $("#ngaygio").val().trim();
+  let maPhong = $("#maPhong").val().trim();
+  let maPhim = $("#maPhim").val().trim();
+  let maRap = $("#maRap").val().trim();
+
+  $.ajax({
+    type: "post",
+    url: "./page-admin/addDataAdmin.php",
+    data: {
+      target: "xuatchieu",
+      ngaygio,
+      maPhong,
+      maPhim,
+      maRap,
     },
     success: function (response) {
       if (response == "success") {
