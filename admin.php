@@ -1,7 +1,7 @@
 <?php
 require_once('./utils.php');
 
-$statementGetBill = "SELECT ngayDat,email,tongTien,maKM FROM hoadon";
+$statementGetBill = "SELECT maHD,ngayDat,email,tongTien,maKM FROM hoadon";
 $dataGetBill = getAllData($statementGetBill, 1); ?>
 ?>
 
@@ -50,7 +50,8 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
                         <li class="nav-item" id="cinema"><a class="nav-link text-white" href="#">Rạp</a></li>
                         <li class="nav-item" id="drink"><a class="nav-link text-white" href="#">Bắp nước</a></li>
                         <li class="nav-item" id="promotion-admin"><a class="nav-link text-white" href="#">Khuyến mãi</a></li>
-                        
+                        <li class="nav-item" id="showtime"><a class="nav-link text-white" href="#">Suất chiếu</a></li>
+
                     </ul>
 
                     <ul class="nav navbar-nav mr-5 heading">
@@ -96,23 +97,33 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $count = 0;
-                foreach ($dataGetBill as $value) :  ?>
-                    <tr>
-                        <th scope="col"><?php $count += 1;
-                                        echo $count; ?></th>
-                        <td><?php echo $value['email']; ?></td>
-                        <td><?php echo $value['ngayDat']; ?></td>
-                        <td><?php echo $value['tongTien']; ?></td>
-                        <td><?php if ($value['maKM'] == 0) echo "User";
-                            else echo "Admin"; ?></td>
-                        <td>
-                            <i class="fas fa-edit" data-toggle="modal" data-target="#addDataAdmin" id="<?php echo $count ?>"> </i>
-                            <i class="fas fa-trash email taikhoan" id="<?php echo $value['email'] ?>"></i>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+            <?php
+        $count = 0;
+        foreach ($dataGetBill as $value) :
+
+            $maHD = $value['maHD'];
+            $email = $value['email'];
+            $ngayDat = $value['ngayDat'];
+            $tongTien = $value['tongTien'];
+            $maKM = $value['maKM'];
+
+        ?>
+
+            <tr>
+                <th scope="col">
+                    <?php
+                    echo $maHD;
+                    ?>
+                </th>
+                <td contentEditable='true' class='edit' id="email_hoadon_<?php echo $maHD;?>_maHD"><?php echo $email; ?></td>
+                <td contentEditable='true' class='edit' id="ngayDat_hoadon_<?php echo $maHD;?>_maHD"><?php echo $ngayDat; ?></td>
+                <td contentEditable='true' class='edit' id="tongTien_hoadon_<?php echo $maHD;?>_maHD"><?php echo $tongTien ?></td>
+                <td contentEditable='true' class='edit' id="maKM_hoadon_<?php echo $maHD;?>_maHD"><?php echo $maKM ?></td>
+                <td>
+                    <i class="fas fa-trash email taikhoan" id="<?php echo $value['email'] ?>"></i>
+                </td>
+            </tr>
+        <?php endforeach; ?>
 
             </tbody>
         </table>

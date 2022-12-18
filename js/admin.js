@@ -27,6 +27,10 @@ $(document).ready(function () {
     $(".body").load("./page-admin/bill.php");
   });
 
+  $("#showtime").click(function () {
+    $(".body").load("./page-admin/showtime.php");
+  });
+
   $(".fa-trash").click(function () {
     let id = $(this).attr("id");
 
@@ -82,6 +86,8 @@ $(document).ready(function () {
     })
 
   });
+
+
 
 });
 

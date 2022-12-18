@@ -33,19 +33,19 @@ $dataGetFlim = getAllData($statementGetFlim, 1); ?>
         <?php foreach ($dataGetFlim as $value) :  ?>
             <tr>
                 <th scope="col"><?php echo $value['maPhim'] ?></th>
-                <td><?php echo $value['tenPhim'] ?></td>
-                <td><?php echo $value['daoDien'] ?></td>
-                <td><?php echo $value['dienVien'] ?></td>
-                <td><?php echo $value['theLoai'] ?></td>
-                <td><?php echo $value['quocGia'] ?></td>
-                <td><?php echo $value['phienBan'] ?></td>
-                <td><?php echo $value['thoiLuong'] ?></td>
-                <td><?php echo $value['gia'] ?></td>
-                <td><?php echo $value['hangPhim'] ?></td>
-                <td><?php echo $value['ngayBD'] ?></td>
-                <td><?php echo $value['ngayKT'] ?></td>
-                <td><?php echo $value['anh'] ?></td>
-                <td><i class="fas fa-edit" data-toggle="modal" data-target="#addDataAdmin"></i>
+                <td contentEditable='true'  class='edit' id="tenPhim_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['tenPhim'] ?></td>
+                <td contentEditable='true'  class='edit'  id="daoDien_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['daoDien'] ?></td>
+                <td contentEditable='true'  class='edit'  id="dienVien_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['dienVien'] ?></td>
+                <td contentEditable='true'  class='edit' id="theLoai_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['theLoai'] ?></td>
+                <td contentEditable='true'  class='edit' id="quocGia_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['quocGia'] ?></td>
+                <td contentEditable='true'  class='edit' id="phienBan_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['phienBan'] ?></td>
+                <td contentEditable='true'  class='edit' id="thoiLuong_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['thoiLuong'] ?></td>
+                <td contentEditable='true'  class='edit' id="gia_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['gia'] ?></td>
+                <td contentEditable='true'  class='edit' id="hangPhim_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['hangPhim'] ?></td>
+                <td contentEditable='true'  class='edit' id="ngayBD_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['ngayBD'] ?></td>
+                <td contentEditable='true' class='edit'  id="ngayKT_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['ngayKT'] ?></td>
+                <td contentEditable='true'  class='edit' id="anh_phim_<?php echo $value['maPhim']?>_maPhim"><?php echo $value['anh'] ?></td>
+                <td>
                 <i class="fas fa-trash maPhim phim" id="<?php echo $value['maPhim'] ?>"></i></td>
 
             </tr>
