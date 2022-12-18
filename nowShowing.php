@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<!-- link text type -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 	<!-- source -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -28,10 +29,10 @@
     <link rel="stylesheet" href="./css/button.css">
     <link rel="stylesheet" href="./css/card.css">
 
-	<title>Search Results</title>
+	<title>Now Showing Movies</title>
 </head>
 <body>
-	<div id="sR">
+	<div id="uM">
 		<div class="heading">
             <!-- Navbar -->
             <?php include_once('./navbar.php') ?>
@@ -39,7 +40,7 @@
 		<div id="content">
 			<!-- header:start -->
 			<div class="ds-line">
-				<h1 class="titleLogin font-weight-70 header">Kết quả tìm kiếm</h1>
+				<h1 class="titleLogin font-weight-70 header">Phim sắp chiếu</h1>
 				<div class="ln-contain mg-bottom">
 					<hr class ="ln mg-bottom">
 				</div>
@@ -59,17 +60,19 @@
 					}
 					$start_from = ($page-1) * $per_page_record;
 					$maxPage = $per_page_record + $start_from;
-					$sV = strtolower(getPOST('search'));
-					$query = "SELECT maPhim,anh,tenPhim,theLoai FROM phim where lower(tenPhim) Like '%$sV%' LIMIT $start_from, $maxPage";
+					$query = "SELECT maPhim,anh,tenPhim,theLoai FROM phim where trangThai = 1 LIMIT $start_from, $maxPage";
 					$select = getAllData($query,1);
 					$countCol = 0;
+					if($select == null){
+
+					}
 				?>
 				<div class="h-20">
 					<?php foreach($select as $value):?>
 						<?php if($countCol == 0){
 							echo '<div class="row">';
 						}?>
-						<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="col-12 col-sm-6 col-md-4 col-lg-3" >
 							<div class="card" id="<?php echo $value['maPhim']?>">
 								<img src="<?php echo $value['anh'];?>" class="card-img-top img-scale" alt="Card image">
 								<div class="card-body">
@@ -96,7 +99,7 @@
 			</div>
 			<div class="pages">
 				<?php
-					$query = "SELECT COUNT(*) as count FROM phim where tenPhim Like '%$sV%'";
+					$query = "SELECT COUNT(*) as count FROM phim where trangThai = 1";
 					$select1 = getAllData($query,1);
 					$total_records = $select1[0]['count'];
 					echo '</br>';
@@ -104,25 +107,25 @@
 					$total_pages = ceil($total_records / $per_page_record);
 					$pagLink = "";
 					if($page>=2){
-						echo "<a href=searchResult.php?page=".($page-1)."> Prev </a>";
+						echo "<a href=nowShowing.php?page=".($page-1)."> Prev </a>";
 					}
 
 					for ($i=1; $i<=$total_pages; $i++) {
 						if ($i == $page) {
-							$pagLink .= "<a class = `active` href=searchResult.php?page=".$i.">".$i." </a>";
+							$pagLink .= "<a class = `active` href=nowShowing.php?page=".$i.">".$i." </a>";
 						}
 						else  {
-							$pagLink .= "<a href=searchResult.php?page=".$i.">".$i." </a>";
+							$pagLink .= "<a href=nowShowing.php?page=".$i.">".$i." </a>";
 						}
 					};
 					echo $pagLink;
 					if($page<$total_pages){
-						echo "<a href=searchResult.php?page=".($page+1)."> Next </a>";
+						echo "<a href=nowShowing.php?page=".($page+1)."> Next </a>";
 					}
 				?>
 			</div>
 		<?php include_once('./footer.php') ?>
-		<script src="./js/handleGoToDetail.js"></script>
 	</div>
+	<script src="./js/handleGoToDetail.js"></script>
 </body>
 </html>

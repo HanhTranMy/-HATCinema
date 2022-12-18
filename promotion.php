@@ -1,11 +1,6 @@
 <?php
 
     require_once('./utils.php');
-
-    
-    $statementPromotion = "SELECT maKM,anh,chuDe,noiDung FROM khuyenmai order by maKM DESC LIMIT 4";
-    $dataPromotion = getAllData($statementPromotion,1);
-    
 ?>
 
 <!DOCTYPE html>
@@ -76,9 +71,9 @@
 						<?php if($countCol == 0){
 							echo '<div class="row">';
 						}?>
-						<div class="col-3">
+						<div class="col-12 col-sm-6 col-md-4 col-lg-3">
 							<div class="card">
-								<img src="./img/<?php echo $value['anh'];?>" class="card-img-top img-scale" alt="">
+								<img src="<?php echo $value['anh'];?>" class="card-img-top img-scale" alt="">
 								<div class="card-body">
 									<h4 class="card-title overflow-text"><?php echo $value['chuDe'];?></h4>
 									<p class="card-text overflow-text"><?php echo $value['noiDung'];?></p>
