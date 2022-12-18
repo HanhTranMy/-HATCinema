@@ -1,7 +1,6 @@
 <?php
 
     require_once('./utils.php');
-
     
     $statementFilmComing = "SELECT anh,tenPhim,theLoai FROM phim WHERE trangThai = 0 ORDER BY maPhim DESC LIMIT 4";
     $dataFilmComing = getAllData( $statementFilmComing,1);
@@ -69,7 +68,7 @@
         <div class="row heading-film">
             <div class="col-6">
                 <?php echo($dataFilmNow[0]['anh']); ?>
-                <h3 class="font-weight-700 text-white title-large">PHIM SẮP CHIẾU</h3>
+                <h3 class="font-weight-700 text-white title-large">PHIM SẮP CHIẾU <?php    echo ($_SESSION['admin']); ?></h3>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <a href="#" class=" btn-xemthem text-white font-weight-700">Xem thêm</a>

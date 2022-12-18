@@ -65,16 +65,6 @@ $(document).ready(function () {
     let value = $(this).text();
     let idDatabase = split_id[3];
     
-    console.log(name);
-    console.log(value);
-    
-    if (name == "ten"){
-      console.log(value);
-      console.log(id);
-      console.log(editID);
-      console.log(table);
-    }
-    
 
     $.ajax({
       url: "./page-admin/updateDataAdmin.php",

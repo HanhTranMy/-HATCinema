@@ -1,9 +1,19 @@
 <?php
 require_once('./utils.php');
 
+if (isset($_SESSION['admin'])) {
+    if ($_SESSION['admin']==false){
+        header('location: index.php');
+    }
+}
+
+if (!isset($_SESSION['admin'])){
+    header('location: index.php');
+};
+
 $statementGetBill = "SELECT maHD,ngayDat,email,tongTien,maKM FROM hoadon";
 $dataGetBill = getAllData($statementGetBill, 1); ?>
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -175,6 +185,8 @@ $dataGetBill = getAllData($statementGetBill, 1); ?>
     <!-- Start a footer -->
     <?php include_once('./footer.php') ?>
     <!-- End a footer -->
+
+    <script src="./js/login_logout.js"></script>
 </body>
 
 </html>

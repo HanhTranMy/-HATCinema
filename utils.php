@@ -124,6 +124,19 @@ if (isset($_POST['login'])) {
     $announce = login();
 }
 
+
+function checkAdminAccount($email){
+
+    $statement =  "SELECT admin FROM taikhoan WHERE email = '$email'";
+    $data =  getData($statement, 1);
+
+    if ($data['admin'] == 1){
+        return true; 
+    }
+
+    return false;
+}
+
 function login()
 {
     $email = getPOST('email');
@@ -134,7 +147,14 @@ function login()
         $statement = "SELECT ten FROM taikhoan WHERE email = '$email'";
         $data =  getData($statement,1);
         $_SESSION['username'] = $data;
-        header('location: index.php');
+        if (checkAdminAccount($email)){
+            $_SESSION['admin'] = true;
+            header('location: admin.php');
+        }
+        else{
+            $_SESSION['admin'] = false;
+            header('location: index.php');
+        }
         return "";
     }
     return "Email or Password is incorrect.";
