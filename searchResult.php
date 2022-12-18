@@ -61,7 +61,7 @@
 					$start_from = ($page-1) * $per_page_record;
 					$maxPage = $per_page_record + $start_from;
 					$sV = getPOST('search');
-					$query = "SELECT anh,tenPhim,theLoai FROM phim where tenPhim Like '%$sV%' LIMIT $start_from, $maxPage";
+					$query = "SELECT anh,tenPhim,theLoai,maPhim FROM phim where tenPhim Like '%$sV%' LIMIT $start_from, $maxPage";
 					$select = getAllData($query,1);
 					$countCol = 0;
 				?>
@@ -71,8 +71,8 @@
 							echo '<div class="row">';
 						}?>
 						<div class="col-3">
-							<div class="card">
-								<img src="./img/<?php echo $value['anh'];?>" class="card-img-top img-scale" alt="Card image">
+							<div class="card" id ="<?php echo $value['maPhim'];?>">
+								<img src="<?php echo $value['anh'];?>" class="card-img-top img-scale" alt="Card image">
 								<div class="card-body">
 									<a href="#">
 										<h4 class="card-title overflow-text"><?php echo $value['tenPhim'];?></h4>
@@ -125,4 +125,7 @@
 		<?php include_once('./footer.php') ?>
 	</div>
 </body>
+
+<script src="./js/handleGoToDetail.js"></script>
+
 </html>
