@@ -15,7 +15,6 @@
 	} 
 
 	if ($POST['target'] == 'phim') {
-		$maPhim = getPOST('maphim');
 		$ngayBD = getPOST('ngayBD');
 		$ngayKT = getPOST('ngayKT');
 		$gia = getPOST('gia');
@@ -24,7 +23,43 @@
 		$theLoai = getPOST('theLoai');
 		$thoiLuong = getPOST('thoiLuong');
 		$trangThai = getPOST('trangThai');
+		$target = getPOST('target');
 
-		addData($target, "maPhim, ngayBD, ngayKT, gia, quocGia, tenPhim, theLoai, thoiLuong, trangThai", "'$maPhim', '$ngayBD', '$ngayKT', '$gia', '$quocGia', '$tenPhim', '$theLoai', '$thoiLuong', '$trangThai'")
+		addData($target, "ngayBD, ngayKT, gia, quocGia, tenPhim, theLoai, thoiLuong, trangThai", "'$ngayBD', '$ngayKT', '$gia', '$quocGia', '$tenPhim', '$theLoai', '$thoiLuong', '$trangThai'");
+	}
+
+	if ($_POST['target'] == 'rap') {
+		$theLoai = getPOST('theLoai');
+
+		addData($target, "theLoai", "'$theLoai'");
+	}
+
+	if ($_POST['target'] == 'bapnuoc') {
+		$tenSP = getPOST('tenSP');
+		$gia = getPOST('gia');
+		$target = getPOST('target');
+
+		addData($target, "tenSP, gia", "'$tenSP', '$gia'");
+	}
+
+	if ($_POST['target'] == 'khuyenmai') {
+		$maKM = getPOST('maKM');
+		$chuDe = getPOST('chuDe');
+		$noiDung = getPOST('noiDung');
+		$ngayBD = getPOST('ngayBD');
+		$ngayKT = getPOST('ngayKT');
+		$target = getPOST('target');
+
+		addData($target, "maKM, chuDe, noiDung, ngayBD, ngayKT", "'$maKM', '$chuDe', '$noiDung', '$ngayBD', '$ngayKT'");
+	}
+
+	if ($_POST['target'] == 'xuatchieu') {
+		$ngaygio = getPOST('ngaygio');
+		$maPhong = getPOST('maPhong');
+		$maPhim = getPOST('maPhim');
+		$maRap = getPOST('maRap');
+		$target = getPOST('target');
+		
+		addData($target, "ngaygio, maPhong, maPhim, maRap", "'$ngaygio', '$maPhong', '$maPhim', '$maRap'")
 	}
 ?>
