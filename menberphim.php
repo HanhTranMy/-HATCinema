@@ -27,7 +27,19 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="./css/button2.css">
 
 
+
     <title>Menber-Phim HAT Cinema</title>
+
+    <style>
+        .body-content-member{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card-img-top{
+            height: 213px;
+        }
+    </style>
 </head>
 
 <body>

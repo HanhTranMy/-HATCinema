@@ -1,5 +1,5 @@
 <?php
-
+include_once('../utils.php');
 $data = getAllData('SElECT * FROM phim', 1);
 foreach ($data as $item) {
 ?>

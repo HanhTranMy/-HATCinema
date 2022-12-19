@@ -129,7 +129,7 @@
     <div class="container show-film" style="margin-bottom: 6.563em; ">
         <div class="row">
             <div class="col-12">
-                <p class="header">phim đang chiếu</p>
+                <p class="header">Khuyến mãi</p>
             </div>
         </div>
         <div class="row">
